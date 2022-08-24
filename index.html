@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Universo Arche</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer">
+  </head>
+  <body>
+
+    <canvas id="bg"></canvas>   
+    <!-- <canvas class="shake-hue-mild-slow" id="bg"></canvas>    -->
+
+    <main>
+      <div id="home"></div>
+      <div id="mainModal" style="flex-wrap: wrap; position: fixed; width: 100%; display: flex; align-items: flex-start; justify-content: space-between; z-index: 999; background: #000000cc;" >
+        <div style=" border-bottom: 1px solid white; flex: 1">
+          <a href="/" >
+            <img src="./res/img/logo.png" alt="" style="height: 62px">
+          </a>
+        </div>
+        
+        <div style="display: flex; border-bottom: 1px solid white; ">
+          <a href="#somos" class="aLink" style="display: block; padding: 20px; ">
+            Quienes Somos?
+          </a>
+          <!-- <a href="#sede" class="aLink" style="display: block; padding: 20px; ">
+            Nuestra Sede
+          </a> -->
+          <a href="#porti" class="aLink" style="display: block; padding: 20px; ">
+            Nuestro Trabajo
+          </a>
+          <a href="#archenautas" class="aLink" style="display: block; padding: 20px; ">
+            Nosotros
+          </a>
+          <a href="#end" class="aLink" style="display: block; padding: 20px; ">
+            End
+          </a>
+          <div style="display: block; padding: 20px; cursor: pointer;" class="aLink" id="mainMenuModal">
+            <i class="fa fa-bars"></i>
+          </div>
+        </div>
+        <div id="mainMenuContent" class="displayNone" style="width: 100%;">
+          <div style="width: 100%; display: flex; justify-content: space-between">
+            <p></p>
+            <p>?</p>
+            <p></p>
+          </div>
+        </div>
+      </div>
+
+
+      <header style="visibility: hidden; height: 3600px;"> asd </header>
+      <!-- <header style="visibility: hidden; height: 1800px;"> asd </header> -->
+
+      <!-- <blockquote>
+        <p>SOMOS UN UNIVERSO CREATIVO</p>
+      </blockquote> -->
+      <section class="textCard">
+      <div style="transform: translateY(-100px)" id="somos"></div>
+      <h2 class="forTitles">¿Quiénes somos?</h2>
+        <div style="margin: 25px; padding: 25px;" class="textCard">
+          <p class="forTextBody">
+            En nostros encontraras un gran aliado para lograr el despegue de tu marca y/o proyecto.
+          </p>
+
+          <p class="forTextBody">
+            Creamos y gestionamos contenido único para posicionarte. Te ayudamos a encontrar las herramientas más
+            eficaces para potenciar tu marca. ¡No le temas a lo que no conoces! Cuentas con nosotros…
+            <hr style="opacity: 10%">
+            En nostros encontraras un gran aliado para lograr el despegue de tu marca y/o proyecto.
+          </p>
+
+        </div>
+        <!-- <img src="./res/img/logo.png" alt="" style="width: 100%;"> -->
+
+        <h2 class="ls-5 forAltTitles " style="margin: 25px; text-align: center;">
+          Nos dedicamos a construir marcas modernas que se diferencian del resto
+        </h2>
+
+      </section>
+
+      <header style="visibility: hidden; height: 800px; margin: 0"> asd </header>
+
+      <blockquote class="forTitles">
+        <p>
+          <p style="padding: 5px;">Este proyecto despegó un</p>
+          <!-- <h1 style="font-size: 5em; text-shadow: 2px 2px 5px #000000;" >03 de julio</h1> -->
+          <p style="font-size: 7em;">03 de julio</p>
+          <p>de 2017</p>
+        </p>
+      </blockquote>
+
+      <header style="visibility: hidden; height: 700px; margin: 0">  </header>
+      
+      <section class="light left textCard">
+        <div style="transform: translateY(-100px)" id="sede"></div>
+        <h2>Nuestra Sede</h2>
+        <p style="margin: 25px;">
+          Aquí es donde la creatividad fluye y se hacen realidad todas las ideas. Cada parte del equipo tiene su espacio creativo, cada rincón fue diseñado por nosotros, pero este lugar no solo es nuestro, también es de nuestros colaboradores, amigos y clientes… ¡También puede ser tuyo!  
+        </p>
+        <div class="textCard" style="margin: 25px; padding: 25px">
+          <p style="margin: 20px; margin-bottom: 15px;">
+            VÍA LÁCTEA, BRAZO ORIÓN, CINTURÓN DE GOULD, VECINDARIO SOLAR, SISTEMA SOLAR,
+          </p>
+          <h3 style="margin: 20px; margin-top: 0;">
+            TIERRA, MAR CARIBE <br> 10°57´55.6”N 63°50´26.2”W
+          </h3>
+        </div>
+        <img src="./res/img/2milkkkyway.jpg" alt="" style="width: 100%; border-radius: 20px;">
+      </section>
+
+      
+
+      <header style="visibility: hidden; height: 500px;"> <div style="transform: translateY(200px)" id="porti"></div> </header>
+      
+
+      <section style="margin-bottom: 0;" class="textCard">
+        <h1 class="forAltTitles" style="text-align: center; opacity: 0.6; letter-spacing: 5px;">¿Qué hacemos por ti?</h1>
+
+        <h2>Branding</h2>
+        <p style="padding: 25px;">
+          Aplicamos las estrategias necesarias para la adecuada construcción de tu marca, creando una línea
+          visual y comunicacional que derive en la conexión que tu marca necesita, utilizando luego las
+          plataformas digitales como tu canal de comunicación más directo. La imagen lo es todo
+        </p>
+        <hr style="opacity: 10%">
+        <h2 style="text-align: right;">Marketing Digital</h2>
+        <p style="text-align: right; padding: 25px;">
+          Aplicamos un conjunto de estrategias para la comercialización de tu marca/producto en el entorno
+          digital o en los medios digitales logrando que te diferencies de la competencia y mejores
+          exponencialmente la difusión de tu marca. No buscamos likes, logramos presencia y fidelización.
+        </p>
+        <hr style="opacity: 10%">
+        <h2>Gestión de RRSS</h2>
+        <p style="padding: 25px;">
+          Analizamos las necesidades específicas de tu marca, planteamos estrategias y creamos contenido
+          exclusivo realizando un conjunto de acciones para aumentar tu presencia en RRSS, fidelizar tu
+          audiencia, crear tu comunidad y, generar más ventas.
+          Que la pasión que sientes por tu empresa se sienta y sea de todos.
+        </p>
+      </section>
+
+      <!-- <header style="visibility: hidden; height: 400px;"> asd </header> -->
+      <section style="position: relative; margin-bottom: 0; padding: 0; background: transparent; transform: translateY(15px);">
+        <img src="./res/img/landscape.png" alt="" style="width: 100%;">
+      </section>
+
+      <section style="position: relative; margin-top: 0; border-radius: 0 0 25px 25px;">
+        <h2>Ads</h2>
+        <p style="padding: 25px;">
+          Mejoramos tu alcance y proyección utilizando la herramienta de Publicidad paga en Facebook e IG,
+          estamos capacitados para planificar y ejecutar desde anuncios que te generen un mayor
+          reconocimiento, hasta campañas publicitarias con objetivos específicos y un mayor impacto.
+          Hagamos que el mundo te conozca y reconozca.
+        </p>
+        <hr style="opacity: 10%">
+        <h2 style="text-align: right;">Diseño Gráfico</h2>
+        <p style="text-align: right; padding: 25px;">
+          Inspirados por nuestros creativos interpretamos, proyectamos y combinamos elementos para crear
+          con imágenes el mensaje de comunicación visual claro que tu marca necesita. Una imagen puede
+          decírtelo todo.
+        </p>
+        <hr style="opacity: 10%">
+        <h2>Audiovisuales</h2>
+        <p style="padding: 25px;">
+          ¡Que tus publicaciones se queden guardadas en la memoria de todos!
+          Mezcla de trabajo, recursos técnicos y por supuesto mucha creatividad, hacemos la pre, pro y
+          postproducción de tu contenido en video y fotografía, para todos los formatos: preparamos,
+          grabamos, editamos y mostramos. ¡El corazón y la mente son la verdadera lente de la cámara!
+        </p>
+        <!-- <img style="position: absolute; right: -220px; bottom: -180px" width="350" src="./res/img/test.png" alt="" > -->
+
+        <div style="transform: translateY(150px)" id="archenautas"></div>
+
+      </section>
+
+      <header style="visibility: hidden; height: 300px; margin: 0"> asd </header>
+
+      <section class="light">
+        <h1 style="opacity: 0.6; text-align: center; letter-spacing: 5px;">Archenautas</h1>
+        <img src="./res/img/color.png" alt="" style="width: 100%;">
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </p>
+        <img src="./res/img/joona-jappinen-charcards.jpg" alt="" style="width: 100%;">
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </p>
+
+        <img src="./res/img/joona-jappinen-charcards.jpg" alt="" style="width: 100%;">
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </p>
+        <img src="./res/img/joona-jappinen-charcards.jpg" alt="" style="width: 100%;">
+      </section>
+
+
+
+      <blockquote style="text-align: center;">
+        <p>NUESTRA CEO: <br>Marelis Mendez Agreda</p>
+      </blockquote>
+      
+      <header style="visibility: hidden; height: 200px; margin: 0"> <div id="end"></div> </header>
+      <div id="end"></div>
+      
+      <blockquote>
+        
+        <p>Nuestro mejor plan: hacer las cosas bien</p>
+      </blockquote>
+
+      <!-- <header style="visibility: hidden; height: 1800px;"> asd </header> -->
+
+    </main>
+    
+    <script type="module" src="./main.js"></script>
+  </body>
+</html>
