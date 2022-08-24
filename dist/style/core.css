@@ -1,0 +1,202 @@
+@import url("https://use.typekit.net/jmk3xov.css");
+
+@font-face {
+  font-family: 'Matrice';
+  /* src: url('webfont.eot'); /* IE9 Compat Modes */
+  src: /* url('webfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       /* url('webfont.woff2') format('woff2'), /* Super Modern Browsers */
+       /* url('webfont.woff') format('woff'), /* Pretty Modern Browsers */
+       url('fonts/Matrice-Black.ttf')  format('truetype'); /* Safari, Android, iOS */
+       /* url('webfont.svg#svgFontName') format('svg'); /* Legacy iOS */
+}
+@font-face {
+  font-family: 'MatriceBold';
+  /* src: url('webfont.eot'); /* IE9 Compat Modes */
+  src: /* url('webfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       /* url('webfont.woff2') format('woff2'), /* Super Modern Browsers */
+       /* url('webfont.woff') format('woff'), /* Pretty Modern Browsers */
+       url('fonts/Matrice-Bold.ttf')  format('truetype'); /* Safari, Android, iOS */
+       /* url('webfont.svg#svgFontName') format('svg'); /* Legacy iOS */
+}
+@font-face {
+  font-family: 'TTNorms';
+  src: url('fonts/TT Norms Pro Medium.otf')  format('opentype'); /* Safari, Android, iOS */
+}
+@font-face {
+  font-family: 'Vastine';
+  src: url('fonts/VastinePersonalUse-jE4ZG.otf')  format('opentype'); /* Safari, Android, iOS */
+}
+
+* {
+  scroll-behavior: smooth;
+}
+
+#mainMenuContent {
+  /* display: none; */
+  flex-basis: 100%;
+
+}
+.displayNone {
+  display: none;
+}
+.forTitles {
+  font-family: 'MatriceBold', Fallback, sans-serif;
+}
+.forAltTitles {
+  font-family: 'Vastine', Fallback, sans-serif;
+}
+.forTextBody {
+  font-family: 'TTNorms', Fallback, sans-serif;
+}
+
+canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+.noScroll {
+  overflow: hidden;
+}
+.modalState {
+  height: 100vh;
+}
+
+
+:root {
+  --dark-bg: rgba(15, 15, 15, 0.95);
+  --spacing: 350px;
+
+  font-family: brandon-grotesque, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.textCard {
+  border-radius: 25px;
+  box-shadow: 5px 5px 25px #00000077;
+}
+.aLink {
+  border-left: 1px solid white;
+  text-decoration: none;  
+  color: white;
+  /* background: #000000cc; */
+  font-size: 1.3em;
+}
+main {
+  width: 100vw;
+  color: white;
+  z-index: 99;
+  position: absolute;
+  width: 100%;
+  margin: 0px auto;
+  /* padding: 160px 0px; */
+  
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+
+  top: 0;
+  left: 0;
+
+  font-family: 'TTNorms', Fallback, sans-serif;
+}
+
+h1, h2, h3, blockquote {
+  font-family: 'MatriceBold', Fallback, sans-serif;
+  /* font-family: 'TTNorms', Fallback, sans-serif; */
+  /* font-family: elevon, sans-serif;
+  font-weight: 700;
+  font-style: normal; */
+}
+
+blockquote {
+  font-family: 'Vastine', Fallback, sans-serif;
+}
+
+canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+
+
+  header {
+    background: var(--dark-bg);
+    /* grid-column: 2 / span 5; */
+    font-size: 2.5rem;
+    padding: 2rem;
+    margin-bottom: var(--spacing);
+  }
+  @media screen and (min-width: 601px) {
+    header {
+      grid-column: 2 / span 5;
+    }
+  }
+  @media screen and (max-width: 600px) {
+    header {
+      grid-column: span 12;
+    }
+  }
+
+  section {
+    grid-column: 4 / 10;
+    padding: 1rem;
+    background: var(--dark-bg);
+    font-size: 1.25rem;
+    line-height: 1.5;
+    margin-bottom: var(--spacing);
+  }
+
+  blockquote {
+    margin: 0;
+    padding: 0;
+    grid-column: 2 / span 9;
+    margin-bottom: var(--spacing);
+  }
+
+  blockquote p {
+    color: black;
+    background-color: white;
+    font-size: 4rem;
+    display: inline;
+    line-height: 1;
+  }
+
+  .left {
+    grid-column: 6 / 12;
+  }
+
+
+.shake-hue-slow-hover:hover { animation: shakehueslow 10s; animation-iteration-count: infinite;}
+.shake-hue { animation: shakehue 5s; animation-iteration-count: infinite;}
+.shake-hue-slow { animation: shakehueslow 10s; animation-iteration-count: infinite;}
+.shake-hue-mild-slow { animation: shakehuemildslow 12s; animation-iteration-count: infinite;}
+
+@keyframes shakehue {
+	0% { filter: hue-rotate(0deg); }
+	5% { filter: hue-rotate(15deg); }
+	15% { filter: hue-rotate(270deg); }
+	30% { filter: hue-rotate(90deg); }
+	50% { filter: hue-rotate(360deg); }
+	65% { filter: hue-rotate(135deg); }
+	85% { filter: hue-rotate(15deg); }
+	100% { filter: hue-rotate(0deg); }
+}
+@keyframes shakehueslow {
+  0% { filter: hue-rotate(0deg); }
+  30% { filter: hue-rotate(36deg); }
+  45% { filter: hue-rotate(16deg); }
+  66% { filter: hue-rotate(60deg); }
+  86% { filter: hue-rotate(10deg); }
+  100% { filter: hue-rotate(0deg); }
+}
+@keyframes shakehuemildslow {
+  0% { filter: hue-rotate(360deg); }
+  30% { filter: hue-rotate(341deg); }
+  50% { filter: hue-rotate(360deg); }
+  65% { filter: hue-rotate(333deg); }
+  81% { filter: hue-rotate(351deg); }
+  100% { filter: hue-rotate(360deg); }
+}
+
+.ls-5 { letter-spacing: 5px; }
