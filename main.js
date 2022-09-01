@@ -677,8 +677,8 @@ function _animate()
   requestAnimationFrame(_animate);
 
   // TheScene.myPlanet.rotation.y += 0.001
-  TheScene.myPlanet.rotation.z += 0.001
-  TheScene.myRing.rotation.z -= 0.0002
+  // TheScene.myPlanet.rotation.z += 0.001
+  // TheScene.myRing.rotation.z -= 0.0002
 
   TheScene.torus.rotation.y += 0.003
   TheScene.torus.rotation.x += 0.001
