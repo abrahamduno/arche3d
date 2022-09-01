@@ -53,7 +53,7 @@ class MyScene {
       sceneBreakpoints: {
         default: [],
         mobile: [1600, 2400, 4200, 5500, 8500],
-        desktop: [2400, 3500, 8500, 11000, 15450],
+        desktop: [2400, 3500, 7800, 11000, 15000],
       },
       sceneVariables: {
         cameraFov: 75,
@@ -116,7 +116,7 @@ class MyScene {
 
     Array(200).fill().forEach(() => { this.loadStars() });
     this.loadTexts()
-    this.loadPlanet()
+    this.loadSpaceObjects()
 
     this.setRenderer()
     this.renderer.render(this.scene, this.camera)
@@ -301,167 +301,68 @@ class MyScene {
   loadObjects()
   {
   }
-  loadPlanet()
+  loadSpaceObjects()
   {
-    const normalTexture = new THREE.TextureLoader().load('res/img/normal.jpg');
-
-    // const jeffTexture = new THREE.TextureLoader().load('res/img/gradient.png');
-
-    // const jeff = new THREE.Mesh(new THREE.BoxGeometry(4, 18, 4), new THREE.MeshBasicMaterial({ map: jeffTexture }));
-
-    // this.scene.add(jeff);
-
-    // Planet
-    let planetPosition = [-150, 120, -200]
-    let planetRotation = [0, 0.5, 1]
-
-    const spaceTexture = new THREE.TextureLoader().load('res/img/bg.jpg');
+    let theRocketRef = {...this.Objects.rocket}
+    let theRocketCenter = {
+      pos: [theRocketRef.pos[0]-20, theRocketRef.pos[1], theRocketRef.pos[2]],
+      rot: [0 , 0.5 , 1],
+      box: [35 , 35 , 35],
+    }
+    let thePlanet = {
+      pos: [-200 , 120 , -300],
+      rot: [0 , 0.5 , 1],
+      sphere: [60 , 48 , 48],
+    }
+    let theRing = {
+      pos: [...thePlanet.pos],
+      rot: [2.4 , 0 , 3],
+      torus: [80 , 15 , 12 , 64],
+      scale: [1 , 1 , 0.02],
+    }
+    
     const planetTexture = new THREE.TextureLoader().load('res/img/444.jpg');
-    // const planetnormalTexture = new THREE.TextureLoader().load('res/img/normal.jpg');
-
-    this.myPlanet = new THREE.Mesh(
-      new THREE.SphereGeometry(72, 48, 48),
-      new THREE.MeshBasicMaterial({
-        map: planetTexture,
-        // normalMap: normalTexture,
-      })
-    );
-
+    this.myPlanet = new THREE.Mesh( new THREE.SphereGeometry(...thePlanet.sphere), new THREE.MeshBasicMaterial({ map: planetTexture, }) );
+    this.myPlanet.position.set(...thePlanet.pos)
+    this.myPlanet.rotation.set(...thePlanet.rot)
     this.scene.add(this.myPlanet);
 
-    this.myPlanet.position.set(planetPosition[0],planetPosition[1],planetPosition[2]);
-    this.myPlanet.rotation.set(planetRotation[0],planetRotation[1],planetRotation[2]);
-
-
-    // Torus
-
-    const geometry = new THREE.TorusGeometry(100, 15, 12, 64);
-    const material = new THREE.MeshStandardMaterial({ color: 0x180C3B, wireframe: true });
-    // const material = new THREE.MeshStandardMaterial({ color: 0x200B3D, wireframe: true });
+    const geometry = new THREE.TorusGeometry(...theRing.torus);
     const ringTexture = new THREE.TextureLoader().load('res/img/998.jpg');
-    this.myRing = new THREE.Mesh(geometry, 
-      new THREE.MeshBasicMaterial({
-        map: ringTexture,
-        // normalMap: planetnormalTexture,
-      })
-    );
-    // this.myRing.position.y = 35
-    // this.myRing.position.z = 30
-    this.myRing.position.set(planetPosition[0],planetPosition[1],planetPosition[2]);
-    this.myRing.rotation.set(2.4, 0, 3);
-    this.myRing.scale.z = 0.05
+    this.myRing = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ map: ringTexture, }) );
+    this.myRing.position.set(...theRing.pos)
+    this.myRing.rotation.set(...theRing.rot)
+    this.myRing.scale.set(...theRing.scale)
     this.scene.add(this.myRing);
 
-
-    let theRocketSettings = this.Objects.rocket
     this.rocketpivot = new THREE.Group();
-    // rocket center
-    {
-      const rocketgeometry = new THREE.BoxGeometry(35, 35, 35);
-      let rocketMesh = new THREE.Mesh(rocketgeometry,new THREE.MeshBasicMaterial({color: 0xffffff, wireframe: true}))
-      let rocketSolid = new THREE.Mesh(rocketgeometry,new THREE.MeshBasicMaterial({color: 0x000000}))
-      // this.myRing.position.set(planetPosition[0],planetPosition[1],planetPosition[2]);
-      // this.myRing.rotation.set(2.4, 0, 3);
-      // this.myRing.scale.z = 0.05
-      // this.scene.add(this.myRing);
+    const rocketgeometry = new THREE.BoxGeometry(...theRocketCenter.box);
+    let rocketMesh = new THREE.Mesh(rocketgeometry,new THREE.MeshBasicMaterial({color: 0xffffff, wireframe: true}))
+    let rocketSolid = new THREE.Mesh(rocketgeometry,new THREE.MeshBasicMaterial({color: 0x000000}))
+    this.rocketpivot.add( rocketMesh );
+    this.rocketpivot.add( rocketSolid );
+    this.rocketpivot.position.set(...theRocketCenter.pos)
+    this.scene.add(this.rocketpivot);
 
-      this.rocketpivot.add( rocketMesh );
-      this.rocketpivot.add( rocketSolid );
-      this.rocketpivot.position.set(theRocketSettings.pos[0]-20, theRocketSettings.pos[1], theRocketSettings.pos[2])
-      // this.rocketpivot.position.set(theRocketSettings.pos[0], theRocketSettings.pos[1], theRocketSettings.pos[2])
-      // this.rocketpivot.add( sq3 );
-      // this.rocketpivot.add( sq4 );
-      this.scene.add(this.rocketpivot);
-    }
-
-
-    const sq2 = new THREE.Mesh(
-      new THREE.BoxGeometry(16,16,16),
-      new THREE.MeshBasicMaterial({color: 0x777777, wireframe: true})
-    );
-    sq2.rotation.y = 0.5
-    sq2.rotation.z = 1
-    const sq3 = new THREE.Mesh(
-      new THREE.SphereGeometry(6, 4, 4),
-      new THREE.MeshBasicMaterial({color: 0xffffff, wireframe: true})
-    );
-    const sq4 = new THREE.Mesh(
-      new THREE.SphereGeometry(4, 4, 4),
-      new THREE.MeshBasicMaterial({color: 0x000000})
-    );
-    const pivot = new THREE.Group();
-    pivot.position.x = 42
-    pivot.position.y = 0
-    pivot.position.z = -22
-    pivot.add( sq2 );
-    pivot.add( sq3 );
-    pivot.add( sq4 );
-    this.scene.add(pivot);
-
-
-
-
-    const moonTexture = new THREE.TextureLoader().load('res/img/Moon_texture.jpg');
-
-    this.myMoon = new THREE.Mesh(
-      new THREE.SphereGeometry(18, 48, 48),
-      new THREE.MeshBasicMaterial({
-        map: moonTexture,
-        normalMap: normalTexture,
-      })
-    );
-    this.myMoon.position.set(390, 175, 250)
-
-    this.scene.add(this.myMoon);
-
-
-
-    // const moonTexture = new THREE.TextureLoader().load('res/img/Moon_texture.jpg');
-    // const normalTexture = new THREE.TextureLoader().load('res/img/normal.jpg');
-
-    // const moon = new THREE.Mesh(
-    //   new THREE.SphereGeometry(9, 48, 48),
-    //   new THREE.MeshStandardMaterial({
-    //     map: moonTexture,
-    //     normalMap: normalTexture,
-    //   })
-    // );
-
-    // this.scene.add(moon);
+    // const sq2 = new THREE.Mesh( new THREE.BoxGeometry(16,16,16), new THREE.MeshBasicMaterial({color: 0x777777, wireframe: true}) );
+    // sq2.rotation.y = 0.5
+    // sq2.rotation.z = 1
+    // const sq3 = new THREE.Mesh( new THREE.SphereGeometry(6, 4, 4), new THREE.MeshBasicMaterial({color: 0xffffff, wireframe: true}) );
+    // const sq4 = new THREE.Mesh( new THREE.SphereGeometry(4, 4, 4), new THREE.MeshBasicMaterial({color: 0x000000}) );
+    // const pivot = new THREE.Group();
+    // pivot.position.set( 42,0,-22)
+    // pivot.add( sq2 );
+    // pivot.add( sq3 );
+    // pivot.add( sq4 );
+    // this.scene.add(pivot);
   }
+
   loadTexts()
   {
     {
       const textloader = new THREE.FontLoader();
-      textloader.load('./style/fonts/Teko_Medium_Regular.json', (font) => {
+      textloader.load('./style/fonts/Montserrat ExtraBold_Regular.json', (font) => {
         const geometry = new THREE.TextGeometry('UNIVERSO CREATIVO', {
-            font: font,
-            size: 5,
-            height: 1,
-            curveSegments: 10,
-            bevelEnabled: false,
-            bevelOffset: 0,
-            bevelSegments: 1,
-            bevelSize: 0.3,
-            bevelThickness: 1
-        });
-        const materials = [
-            new THREE.MeshBasicMaterial({ color: 0x9633FF }), // front
-            new THREE.MeshBasicMaterial({ color: 0x090D35 }) // side
-        ];
-        const textMesh1 = new THREE.Mesh(geometry, materials);
-        textMesh1.position.y = -0.7
-        // textMesh1.position.y = 2
-        textMesh1.position.x = -13.5 - 4
-        textMesh1.position.z = 9
-        this.scene.add(textMesh1)
-      });
-    }
-
-    {
-      const textloader = new THREE.FontLoader();
-      textloader.load('./style/fonts/Teko_Medium_Regular.json', (font) => {
-        const geometry = new THREE.TextGeometry('SOMOS UN ', {
             font: font,
             size: 2,
             height: 1,
@@ -477,10 +378,39 @@ class MyScene {
             new THREE.MeshBasicMaterial({ color: 0x090D35 }) // side
         ];
         const textMesh1 = new THREE.Mesh(geometry, materials);
-        // textMesh1.rotation.y = 0.4
         textMesh1.position.y = -0.7
         // textMesh1.position.y = 2
-        textMesh1.position.x = -22 - 4
+        textMesh1.position.x = -16
+        // textMesh1.position.x = -13.5 - 4
+        textMesh1.position.z = 9
+        this.scene.add(textMesh1)
+      });
+    }
+
+    {
+      const textloader = new THREE.FontLoader();
+      textloader.load('./style/fonts/Montserrat ExtraBold_Regular.json', (font) => {
+        const geometry = new THREE.TextGeometry('SOMOS UN ', {
+            font: font,
+            size: 1,
+            height: 1,
+            curveSegments: 10,
+            bevelEnabled: false,
+            bevelOffset: 0,
+            bevelSegments: 1,
+            bevelSize: 0.3,
+            bevelThickness: 1
+        });
+        const materials = [
+            new THREE.MeshBasicMaterial({ color: 0x9633FF }), // front
+            new THREE.MeshBasicMaterial({ color: 0x090D35 }) // side
+        ];
+        const textMesh1 = new THREE.Mesh(geometry, materials);
+        // textMesh1.rotation.y = 0.4
+        textMesh1.position.y = 1.5
+        // textMesh1.position.y = 2
+        textMesh1.position.x = -4
+        // textMesh1.position.x = -22 - 4
         textMesh1.position.z = 11
         this.scene.add(textMesh1)
       });
@@ -488,7 +418,7 @@ class MyScene {
 
     {
       const textloader = new THREE.FontLoader();
-      textloader.load('./style/fonts/Teko_Medium_Regular.json', (font) => {
+      textloader.load('./style/fonts/Montserrat ExtraBold_Regular.json', (font) => {
         const geometry = new THREE.TextGeometry('¿Qué hacemos por ti?', {
             font: font,
             size: 20,
@@ -529,7 +459,7 @@ class MyScene {
 
     {
       const textloader = new THREE.FontLoader();
-      textloader.load('./style/fonts/Teko_Medium_Regular.json', (font) => {
+      textloader.load('./style/fonts/Montserrat ExtraBold_Regular.json', (font) => {
         const geometry = new THREE.TextGeometry('Archenautas', {
             font: font,
             size: 22,
@@ -551,7 +481,7 @@ class MyScene {
         // textMesh1.rotation.y = -1.4
         textMesh1.rotation.x = 0.5
         textMesh1.position.x = 1200
-        textMesh1.position.y = 70
+        textMesh1.position.y = 67
         textMesh1.position.z = 55
         this.scene.add(textMesh1)
       });
@@ -711,60 +641,3 @@ window.addEventListener('load', function(event) {
     document.getElementById("mainMenuContent").classList.toggle("displayNone")
   });
 });
-
-
-
-
-
-
-
-
-
-
-  // if (t < -TheScene.sceneBreakpoints.default[0])
-  // {
-  //   TheScene.camera.position.x = -3 - ( (t + TheScene.sceneBreakpoints.default[0]) * -0.05 );
-  //   TheScene.camera.position.y = -0.5 + ( (t + TheScene.sceneBreakpoints.default[0]) * -0.006 );
-
-  //   // TheScene.camera.rotation.y = (t + TheScene.sceneBreakpoints.default[0]) * -0.0002;
-  //   // TheScene.camera.rotation.z = (t + TheScene.sceneBreakpoints.default[0]) * -0.00002;
-  // } else {
-  //   TheScene.camera.position.y = -0.5
-  //   TheScene.camera.position.x = -3
-  // }
-
-  // if (t < -TheScene.sceneBreakpoints.default[1])
-  // {
-  //   // TheScene.camera.position.x = -3 - ( (t + TheScene.sceneBreakpoints.default[1]) * -0.05 );
-  //   // TheScene.camera.position.y = -0.5 + ( (t + TheScene.sceneBreakpoints.default[1]) * -0.001 );
-
-  //   TheScene.camera.rotation.y = (t + TheScene.sceneBreakpoints.default[1]) * -0.0002;
-  //   TheScene.camera.rotation.z = (t + TheScene.sceneBreakpoints.default[1]) * -0.00002;
-  // } else {
-  //   // TheScene.camera.position.y = -0.5
-  //   // TheScene.camera.position.x = -3
-  // }
-
-
-
-
-
-
-
-
-
-// Torus
-
-
-// Lights
-
-
-// const ambientLight = new THREE.AmbientLight(0xffffff, 1);
-// scene.add(ambientLight);
-
-// const pointLight = new THREE.PointLight(0xffffff);
-// pointLight.position.set(0, 15, 0);
-// pointLight.rotation.set(0, 0, 1);
-// scene.add(pointLight);
-// const sphereSize = 10;
-// const pointLightHelper = new THREE.PointLightHelper( pointLight, sphereSize );
