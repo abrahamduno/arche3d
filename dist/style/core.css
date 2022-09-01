@@ -40,13 +40,20 @@
   display: none;
 }
 .forTitles {
-  font-family: 'MatriceBold', Fallback, sans-serif;
+  /* font-family: 'MatriceBold', Fallback, sans-serif; */
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
 }
 .forAltTitles {
-  font-family: 'Vastine', Fallback, sans-serif;
+  /* font-family: 'Vastine', Fallback, sans-serif; */
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
 }
-.forTextBody {
+/* .forTextBody {
   font-family: 'TTNorms', Fallback, sans-serif;
+} */
+.forTextBody {
+  font-family: 'Raleway', sans-serif;
 }
 
 canvas {
@@ -101,7 +108,10 @@ main {
 }
 
 h1, h2, h3, blockquote {
-  font-family: 'MatriceBold', Fallback, sans-serif;
+  font-family: 'Montserrat', sans-serif;
+
+  /* font-family: 'MatriceBold', Fallback, sans-serif; */
+  
   /* font-family: 'TTNorms', Fallback, sans-serif; */
   /* font-family: elevon, sans-serif;
   font-weight: 700;
