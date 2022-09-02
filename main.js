@@ -31,24 +31,6 @@ class MyScene {
           rot: [0.5, 1.5, 0],
           scale: [18, 18, 18],
         },
-
-
-        // sat2: {
-        //   file: 'sat.obj',
-        //   path: BASE_ASSET_URL+'/models/',
-        //   wireframe: true,
-        //   pos: [390, 275, 250],
-        //   rot: [0, 1, 0],
-        //   scale: [3, 3, 3],
-        // },
-        // satFill: {
-        //   file: 'sat.obj',
-        //   path: BASE_ASSET_URL+'/models/',
-        //   wireframe: false,
-        //   pos: [40, 25, 45],
-        //   rot: [0, 1, 0],
-        //   scale: [3,3,3],
-        // },
       },
       sceneBreakpoints: {
         default: [],
@@ -411,7 +393,7 @@ class MyScene {
         // textMesh1.position.y = 2
         textMesh1.position.x = -4
         // textMesh1.position.x = -22 - 4
-        textMesh1.position.z = 11
+        textMesh1.position.z = 14
         this.scene.add(textMesh1)
       });
     }
@@ -421,7 +403,7 @@ class MyScene {
       textloader.load('./style/fonts/Montserrat ExtraBold_Regular.json', (font) => {
         const geometry = new THREE.TextGeometry('¿Qué hacemos por ti?', {
             font: font,
-            size: 20,
+            size: 14,
             height: 1,
             curveSegments: 10,
             bevelEnabled: false,
