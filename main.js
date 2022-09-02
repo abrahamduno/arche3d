@@ -35,7 +35,7 @@ class MyScene {
       sceneBreakpoints: {
         default: [],
         mobile: [1600, 2400, 4200, 5500, 8500],
-        desktop: [2400, 3500, 7800, 11000, 15000],
+        desktop: [2400, 3500, 7500, 11000, 15000],
       },
       sceneVariables: {
         cameraFov: 75,
@@ -294,12 +294,12 @@ class MyScene {
     let thePlanet = {
       pos: [-200 , 120 , -300],
       rot: [0 , 0.5 , 1],
-      sphere: [60 , 48 , 48],
+      sphere: [32 , 48 , 48],
     }
     let theRing = {
       pos: [...thePlanet.pos],
       rot: [2.4 , 0 , 3],
-      torus: [80 , 15 , 12 , 64],
+      torus: [45 , 8 , 12 , 64],
       scale: [1 , 1 , 0.02],
     }
     
@@ -356,8 +356,8 @@ class MyScene {
             bevelThickness: 1
         });
         const materials = [
-            new THREE.MeshBasicMaterial({ color: 0x9633FF }), // front
-            new THREE.MeshBasicMaterial({ color: 0x090D35 }) // side
+            new THREE.MeshBasicMaterial({ color: 0xFFFFFF }), // front
+            new THREE.MeshBasicMaterial({ color: 0x020226 }) // side
         ];
         const textMesh1 = new THREE.Mesh(geometry, materials);
         textMesh1.position.y = -0.7
@@ -384,12 +384,12 @@ class MyScene {
             bevelThickness: 1
         });
         const materials = [
-            new THREE.MeshBasicMaterial({ color: 0x9633FF }), // front
-            new THREE.MeshBasicMaterial({ color: 0x090D35 }) // side
+            new THREE.MeshBasicMaterial({ color: 0xFFFFFF }), // front
+            new THREE.MeshBasicMaterial({ color: 0x020226 }) // side
         ];
         const textMesh1 = new THREE.Mesh(geometry, materials);
         // textMesh1.rotation.y = 0.4
-        textMesh1.position.y = 1.5
+        textMesh1.position.y = 1.25
         // textMesh1.position.y = 2
         textMesh1.position.x = -4
         // textMesh1.position.x = -22 - 4
@@ -403,7 +403,7 @@ class MyScene {
       textloader.load('./style/fonts/Montserrat ExtraBold_Regular.json', (font) => {
         const geometry = new THREE.TextGeometry('¿Qué hacemos por ti?', {
             font: font,
-            size: 14,
+            size: 12,
             height: 1,
             curveSegments: 10,
             bevelEnabled: false,
@@ -420,7 +420,7 @@ class MyScene {
         // textMesh1.rotation.y = 0.4
         // 190, 75, 100
         textMesh1.rotation.x = 0.6
-        textMesh1.position.x = 230
+        textMesh1.position.x = 180
         textMesh1.position.y = 80
         textMesh1.position.z = 30
         this.scene.add(textMesh1)
@@ -433,7 +433,7 @@ class MyScene {
       this.torus = new THREE.Mesh(torusgeometry, torusmaterial);
       // this.torus.position.y = 35
       // this.torus.position.z = 30
-      this.torus.position.x = 790
+      this.torus.position.x = 750
       this.torus.position.y = 80
       this.torus.position.z = 55
       this.scene.add(this.torus);
