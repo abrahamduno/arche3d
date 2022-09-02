@@ -622,4 +622,12 @@ window.addEventListener('load', function(event) {
     document.getElementById("mainModal").classList.toggle("modalState")
     document.getElementById("mainMenuContent").classList.toggle("displayNone")
   });
+  document.querySelectorAll(".modalLinkButton")
+  .forEach(adom => {
+    adom.addEventListener('click', function(event) {
+      // alert()
+      document.getElementById("mainModal").classList.toggle("modalState")
+      document.getElementById("mainMenuContent").classList.toggle("displayNone")
+    });
+  })
 });

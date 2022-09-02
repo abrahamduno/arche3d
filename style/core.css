@@ -31,6 +31,7 @@
   scroll-behavior: smooth;
 }
 
+
 #mainMenuContent {
   /* display: none; */
   flex-basis: 100%;
@@ -111,7 +112,7 @@ h1, h2, h3, blockquote {
   font-family: 'Montserrat', sans-serif;
 
   /* font-family: 'MatriceBold', Fallback, sans-serif; */
-  
+
   /* font-family: 'TTNorms', Fallback, sans-serif; */
   /* font-family: elevon, sans-serif;
   font-weight: 700;
