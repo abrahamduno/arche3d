@@ -1,15 +1,15 @@
 import "./style/core.css";
-import MyScene from "./myScene.js";
-// import * as THREE from "three";
+import * as THREE from "three";
+import { OBJLoader } from "./res/loaders/OBJLoader.js";
 
+//No se si es necesario
 import { MTLLoader } from "./res/loaders/MTLLoader.js";
-// import { OBJLoader } from "./res/loaders/OBJLoader.js";
 
-//const BASE_URL = "http://localhost:3000/";
+const BASE_URL = "http://localhost:3000/";
 // const BASE_ASSET_URL = "./dist/res"
-//const BASE_ASSET_URL = "./res";
+const BASE_ASSET_URL = "./res";
 
-/* class MyScene {
+export default class MyScene {
   getInitialState() {
     return {
       DOM: {},
@@ -539,140 +539,4 @@ import { MTLLoader } from "./res/loaders/MTLLoader.js";
     // star.position.set((x * 3) -50, y + 250, z);
     this.scene.add(star);
   }
-} */
-
-//#########################
-//##### SEGUNDA PARTE #####
-function lerp(min, max, value) {
-  return (max - min) * value + min;
 }
-const TheScene = new MyScene();
-function watchScroll() {
-  const t = document.body.getBoundingClientRect().top;
-  // console.log(t, TheScene.camera)
-  console.log(t);
-
-  if (t < -TheScene.sceneBreakpoints.default[4]) {
-    TheScene.camera.rotation.z = TheScene.sceneVariables.cameraRotZ;
-    TheScene.camera.rotation.x = TheScene.sceneVariables.cameraRotX;
-    TheScene.camera.rotation.y = TheScene.sceneVariables.cameraRotY;
-
-    TheScene.camera.position.z = -TheScene.sceneVariables.cameraPosZ + 45;
-    // TheScene.camera.position.x = lerp(TheScene.camera.position.x,-TheScene.sceneVariables.cameraPosX,0.2)
-    // TheScene.camera.position.x = -TheScene.sceneVariables.cameraPosX
-    TheScene.camera.position.y = TheScene.sceneVariables.cameraPosY + 1;
-
-    // TheScene.camera.position.z = -TheScene.sceneVariables.cameraPosZ + 45 + (t+TheScene.sceneBreakpoints.default[4]) * -0.001
-  } else {
-    TheScene.camera.position.z = TheScene.sceneVariables.cameraPosZ + t * -0.01;
-
-    // ROTATE UP | SCREEN 1
-    if (t < -TheScene.sceneBreakpoints.default[0]) {
-      TheScene.camera.rotation.x = TheScene.sceneVariables.cameraRotX;
-    } else {
-      TheScene.camera.rotation.x =
-        TheScene.sceneVariables.cameraRotX -
-        (t + TheScene.sceneBreakpoints.default[0]) * 0.00005;
-    }
-
-    // ELEVATE UP | SCREEN 2
-    if (t < -TheScene.sceneBreakpoints.default[0]) {
-      if (t > -TheScene.sceneBreakpoints.default[2]) {
-        TheScene.camera.position.y =
-          TheScene.sceneVariables.cameraPosY -
-          (t + TheScene.sceneBreakpoints.default[0]) * 0.0065;
-      } else {
-        TheScene.camera.position.y =
-          TheScene.sceneVariables.cameraPosY -
-          (-TheScene.sceneBreakpoints.default[2] +
-            TheScene.sceneBreakpoints.default[0]) *
-            0.0065;
-      }
-    } else {
-      TheScene.camera.position.y = TheScene.sceneVariables.cameraPosY;
-    }
-
-    if (t < -TheScene.sceneBreakpoints.default[1]) {
-      TheScene.camera.position.x =
-        -TheScene.sceneVariables.cameraPosX -
-        (t + TheScene.sceneBreakpoints.default[1]) * 0.03;
-    } else {
-      TheScene.camera.position.x = -TheScene.sceneVariables.cameraPosX;
-    }
-
-    if (t < -TheScene.sceneBreakpoints.default[2]) {
-      TheScene.camera.position.x =
-        -TheScene.sceneVariables.cameraPosX -
-        (t + TheScene.sceneBreakpoints.default[2]) * 0.25 -
-        (t + TheScene.sceneBreakpoints.default[1]) * 0.03;
-      if (t > -TheScene.sceneBreakpoints.default[3]) {
-        TheScene.camera.rotation.y =
-          TheScene.sceneVariables.cameraRotY +
-          (t + TheScene.sceneBreakpoints.default[2]) * 0.0002;
-      } else {
-        TheScene.camera.rotation.y =
-          TheScene.sceneVariables.cameraRotY +
-          (-TheScene.sceneBreakpoints.default[3] +
-            TheScene.sceneBreakpoints.default[2]) *
-            0.0002;
-      }
-    } else {
-      // TheScene.camera.position.x = -TheScene.sceneVariables.cameraPosX
-      TheScene.camera.rotation.y = TheScene.sceneVariables.cameraRotY;
-    }
-  }
-}
-document.body.onscroll = watchScroll;
-function _animate() {
-  requestAnimationFrame(_animate);
-
-  // TheScene.myPlanet.rotation.y += 0.001
-  // TheScene.myPlanet.rotation.z += 0.001
-  // TheScene.myRing.rotation.z -= 0.0002
-
-  TheScene.torus.rotation.y += 0.003;
-  TheScene.torus.rotation.x += 0.001;
-
-  TheScene.rocketpivot.rotation.x += 0.001;
-  TheScene.rocketpivot.rotation.y += 0.002;
-  TheScene.rocketpivot.rotation.z -= 0.002;
-
-  const t = document.body.getBoundingClientRect().top;
-  if (t < -TheScene.sceneBreakpoints.default[4]) {
-    TheScene.camera.position.x = lerp(
-      TheScene.camera.position.x,
-      -TheScene.sceneVariables.cameraPosX,
-      0.2
-    );
-  }
-
-  // TheScene.torus.position.x = 1270
-  // TheScene.torus.position.y = 80
-  // TheScene.torus.position.z = 55
-
-  TheScene.renderer.render(TheScene.scene, TheScene.camera);
-}
-watchScroll();
-_animate();
-
-window.addEventListener("load", function (event) {
-  document
-    .getElementById("mainMenuModal")
-    .addEventListener("click", function (event) {
-      document.body.classList.toggle("noScroll");
-      console.log("asd");
-      document.getElementById("mainModal").classList.toggle("modalState");
-      document
-        .getElementById("mainMenuContent")
-        .classList.toggle("displayNone");
-    });
-  document.querySelectorAll(".modalLinkButton").forEach((adom) => {
-    adom.addEventListener("click", function (event) {
-      // alert()
-      document.getElementById("mainModal").classList.toggle("modalState");
-      document
-        .getElementById("mainMenuContent")
-        .classList.toggle("displayNone");
-    });
-  });
-});
