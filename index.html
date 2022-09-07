@@ -8,13 +8,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800;900&family=Raleway&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer">
-    <style>
-      @media only screen and (max-width: 800px) {
-        .mzxcasdqwe {
-          display: none !important;
-        }
-      }
-    </style>
   </head>
   <body>
 
@@ -22,43 +15,45 @@
 
     <main>
       <div id="home"></div>
-      <div id="mainModal" style="flex-wrap: wrap; position: fixed; width: 100%; display: flex; align-items: flex-start; justify-content: space-between; z-index: 999; background: #000000cc;" >
-        <div style=" border-bottom: 1px solid white; flex: 1">
+      <div id="mainModal" class="flex-wrap flex-align-start flex-justify-between w-100"
+            style="position: fixed;z-index: 999; background: #000000cc;"
+      >
+        <div class="flex-1" style=" border-bottom: 1px solid white;">
           <a href="/" >
             <img src="./res/img/logo.png" alt="" style="height: 62px">
           </a>
         </div>
         
-        <div style="display: flex; border-bottom: 1px solid white; ">
-          <a href="#somos" class="aLink" style="display: block; padding: 20px; ">
+        <div class="flex" style="border-bottom: 1px solid white; ">
+          <a href="#somos" class="aLink block pa-4">
             <i style="text-shadow: 1px 1px 5px #96D249; color: #96D249"  class="fa-brands fa-whatsapp"></i>
           </a>
-          <a href="#somos" class="aLink" style="display: block; padding: 20px; ">
+          <a href="#somos" class="aLink block pa-4">
             <i style="text-shadow: 1px 1px 3px #FC008F, -1px -1px 3px #F7B433" class="fa-brands fa-instagram"></i>
           </a>
-          <a href="#somos" class="aLink" style="display: block; padding: 20px; ">
+          <a href="#somos" class="aLink block pa-4">
             <i style="text-shadow: 2px 2px #F20850, -2px -1px #5AC4C8" class="fa-brands fa-tiktok"></i>
           </a>
-          <a href="#porti" class="aLink mzxcasdqwe" style="display: block; padding: 20px; ">
+          <a href="#porti" class="aLink block pa-4 show-md_x">
             ¿Que hacemos por ti?
           </a>
           <div style="display: block; padding: 20px; cursor: pointer;" class="aLink" id="mainMenuModal">
             <i class="fa fa-bars"></i>
           </div>
         </div>
-        <div id="mainMenuContent" class="displayNone" style="width: 100%;">
-          <div style="width: 100%; display: flex; justify-content: space-between">
+        <div id="mainMenuContent" class="displayNone w-100">
+          <div class="flex-justify-between w-100">
             <p></p>
             <p>?</p>
             <div>
 
-            <a href="#somos" class="modalLinkButton aLink" style="display: block; padding: 20px; " >
+            <a href="#somos" class="modalLinkButton aLink block pa-4">
               ¿Quiénes Somos?
             </a>
-            <a href="#sede" class="modalLinkButton aLink" style="display: block; padding: 20px; " >
+            <a href="#sede" class="modalLinkButton aLink block pa-4">
               Nuestra Sede
             </a>
-            <a href="#archenautas" class="modalLinkButton aLink" style="display: block; padding: 20px; " >
+            <a href="#archenautas" class="modalLinkButton aLink block pa-4">
               Archenautas
             </a>
             </div>
