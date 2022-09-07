@@ -1,4 +1,5 @@
 import "./style/core.css";
+import "./style/css.css";
 import MyScene from "./myScene.js";
 // import * as THREE from "three";
 
