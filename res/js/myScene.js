@@ -1,9 +1,8 @@
-import "./style/core.css";
 import * as THREE from "three";
-import { OBJLoader } from "./res/loaders/OBJLoader.js";
+import { OBJLoader } from "../loaders/OBJLoader.js";
 
 //No se si es necesario
-import { MTLLoader } from "./res/loaders/MTLLoader.js";
+import { MTLLoader } from "../loaders/MTLLoader.js";
 
 const BASE_URL = "http://localhost:3000/";
 // const BASE_ASSET_URL = "./dist/res"
@@ -313,7 +312,7 @@ export default class MyScene {
       new THREE.MeshBasicMaterial({ color: 0x020226 }), // side
     ];
     textloader.load(
-      "./style/fonts/Montserrat ExtraBold_Regular.json",
+      "./res/style/fonts/Montserrat ExtraBold_Regular.json",
       (font) => {
         {
           const geometry = new THREE.TextGeometry("SOMOS UN ", {font: font, size: 1, height: 1, });
