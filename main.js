@@ -17,7 +17,7 @@ const TheScrollWatcher = new ScrollWatcher(TheScene);
 
 function scrollUpdater(event)
 {
-  TheScrollWatcher.update(TheScene)
+  TheScrollWatcher.update()
 }
 document.body.onscroll = scrollUpdater
 function _animate() {
@@ -45,7 +45,7 @@ function _animate() {
 
   TheScene.renderer.render(TheScene.scene, TheScene.camera);
 }
-TheScrollWatcher.updateAndSetScene(TheScene)
+TheScrollWatcher.update()
 _animate();
 
 window.addEventListener("load", function (event)
