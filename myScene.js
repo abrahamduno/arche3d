@@ -37,18 +37,13 @@ export default class MyScene {
         desktop: [2400, 3500, 7500, 11000, 15000],
       },
       sceneVariables: {
-        cameraFov: 75,
-        cameraMinReach: 0.1,
-        cameraMaxReach: 1000,
-        // cameraPosX: -3,
-        cameraPosX: 0,
-        cameraPosY: 0,
-        // cameraPosY: 5,
-        cameraPosZ: 9,
-        cameraRotX: 0.5,
-        // cameraRotX: -0.5,
-        cameraRotY: 0,
-        cameraRotZ: 0,
+        camera: {
+          pos: [0,0,9],
+          rot: [0.5,0,0],
+          fov: 75,
+          minReach: 0.1,
+          maxReach: 1000,
+        },
       },
     };
   }
@@ -91,13 +86,8 @@ export default class MyScene {
 
     this.loadSkeletonObjects();
     this.loadWireframeObjects();
-    this.loadObjects();
 
-    Array(200)
-      .fill()
-      .forEach(() => {
-        this.loadStars();
-      });
+    Array(200).fill().forEach(() => { this.loadAStar(); });
     this.loadTexts();
     this.loadSpaceObjects();
 
@@ -129,21 +119,13 @@ export default class MyScene {
     this.scene.background = spaceTexture;
 
     let camera = new THREE.PerspectiveCamera(
-      this.sceneVariables.cameraFov,
+      this.sceneVariables.camera.fov,
       this.DOM.ratio,
-      this.sceneVariables.cameraMinReach,
-      this.sceneVariables.cameraMaxReach
+      this.sceneVariables.camera.minReach,
+      this.sceneVariables.camera.maxReach
     );
-    camera.position.set(
-      this.sceneVariables.cameraPosX,
-      this.sceneVariables.cameraPosY,
-      this.sceneVariables.cameraPosZ
-    );
-    camera.rotation.set(
-      this.sceneVariables.cameraRotX,
-      this.sceneVariables.cameraRotY,
-      this.sceneVariables.cameraRotZ
-    );
+    camera.position.set(...this.sceneVariables.camera.pos)
+    camera.rotation.set(...this.sceneVariables.camera.rot)
     this.camera = camera;
   }
   setRenderer() {
@@ -161,6 +143,7 @@ export default class MyScene {
       const percentComplete = (xhr.loaded / xhr.total) * 100;
 
       if (this.DEBUG) {
+        console.log("loading objects...")
         let loadTarget = xhr.currentTarget.responseURL.replace(BASE_URL, "");
         console.log(
           loadTarget,
@@ -210,22 +193,9 @@ export default class MyScene {
             new OBJLoader().setPath(this.Objects[property].path).load(
               this.Objects[property].file,
               (object) => {
-                object.position.set(
-                  this.Objects[property].pos[0],
-                  this.Objects[property].pos[1],
-                  this.Objects[property].pos[2]
-                );
-                object.rotation.set(
-                  this.Objects[property].rot[0],
-                  this.Objects[property].rot[1],
-                  this.Objects[property].rot[2]
-                );
-                object.scale.set(
-                  this.Objects[property].scale[0],
-                  this.Objects[property].scale[1],
-                  this.Objects[property].scale[2]
-                );
-
+                object.position.set(...this.Objects[property].pos);
+                object.rotation.set(...this.Objects[property].rot);
+                object.scale.set(...this.Objects[property].scale);
                 this.scene.add(object);
               },
               this.onLoadProgress
@@ -250,12 +220,8 @@ export default class MyScene {
             });
           }
         });
-
-        object.position.y = -0.85;
-        object.position.z = -35;
-        object.scale.x = 15;
-        object.scale.y = 15;
-        object.scale.z = 15;
+        object.position.set(0,-0.85,-35)
+        object.scale.set(15,15,15)
         this.scene.add(object);
       },
       this.onLoadProgress
@@ -274,18 +240,14 @@ export default class MyScene {
           });
 
           // object.castshadow = - 1;
-          object.position.y = -0.85 - 0.025;
-          object.position.z = -35;
+          object.position.set(0,-0.85- 0.025,-35)
           // object.position.x = - 3;
-          object.scale.x = 15;
-          object.scale.y = 15;
-          object.scale.z = 15;
+          object.scale.set(15,15,15)
           this.scene.add(object);
         },
         this.onLoadProgress
       );
   }
-  loadObjects() {}
   loadSpaceObjects() {
     let theRocketRef = { ...this.Objects.rocket };
     let theRocketCenter = {
@@ -305,6 +267,11 @@ export default class MyScene {
       scale: [1, 1, 0.02],
     };
 
+    let theTorus = {
+      pos: [750,80,55],
+      torus: [50, 15, 8, 32],
+    };
+
     const planetTexture = new THREE.TextureLoader().load("res/img/444.jpg");
     this.myPlanet = new THREE.Mesh(
       new THREE.SphereGeometry(...thePlanet.sphere),
@@ -316,10 +283,7 @@ export default class MyScene {
 
     const geometry = new THREE.TorusGeometry(...theRing.torus);
     const ringTexture = new THREE.TextureLoader().load("res/img/998.jpg");
-    this.myRing = new THREE.Mesh(
-      geometry,
-      new THREE.MeshBasicMaterial({ map: ringTexture })
-    );
+    this.myRing = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ map: ringTexture }) );
     this.myRing.position.set(...theRing.pos);
     this.myRing.rotation.set(...theRing.rot);
     this.myRing.scale.set(...theRing.scale);
@@ -327,216 +291,82 @@ export default class MyScene {
 
     this.rocketpivot = new THREE.Group();
     const rocketgeometry = new THREE.BoxGeometry(...theRocketCenter.box);
-    let rocketMesh = new THREE.Mesh(
-      rocketgeometry,
-      new THREE.MeshBasicMaterial({ color: 0xffffff, wireframe: true })
-    );
-    let rocketSolid = new THREE.Mesh(
-      rocketgeometry,
-      new THREE.MeshBasicMaterial({ color: 0x000000 })
-    );
+    let rocketMesh = new THREE.Mesh(rocketgeometry, new THREE.MeshBasicMaterial({ color: 0xffffff, wireframe: true }) );
+    let rocketSolid = new THREE.Mesh(rocketgeometry, new THREE.MeshBasicMaterial({ color: 0x000000 }) );
     this.rocketpivot.add(rocketMesh);
     this.rocketpivot.add(rocketSolid);
     this.rocketpivot.position.set(...theRocketCenter.pos);
     this.scene.add(this.rocketpivot);
 
-    // const sq2 = new THREE.Mesh( new THREE.BoxGeometry(16,16,16), new THREE.MeshBasicMaterial({color: 0x777777, wireframe: true}) );
-    // sq2.rotation.y = 0.5
-    // sq2.rotation.z = 1
-    // const sq3 = new THREE.Mesh( new THREE.SphereGeometry(6, 4, 4), new THREE.MeshBasicMaterial({color: 0xffffff, wireframe: true}) );
-    // const sq4 = new THREE.Mesh( new THREE.SphereGeometry(4, 4, 4), new THREE.MeshBasicMaterial({color: 0x000000}) );
-    // const pivot = new THREE.Group();
-    // pivot.position.set( 42,0,-22)
-    // pivot.add( sq2 );
-    // pivot.add( sq3 );
-    // pivot.add( sq4 );
-    // this.scene.add(pivot);
+    const torusgeometry = new THREE.TorusGeometry(...theTorus.torus);
+    const torusmaterial = new THREE.MeshBasicMaterial({color: 0x1b0f3f, wireframe: true, });
+    this.torus = new THREE.Mesh(torusgeometry, torusmaterial);
+    this.torus.position.set(...theTorus.pos)
+    this.scene.add(this.torus);
   }
 
-  loadTexts() {
-    {
-      const textloader = new THREE.FontLoader();
-      textloader.load(
-        "./style/fonts/Montserrat ExtraBold_Regular.json",
-        (font) => {
-          const geometry = new THREE.TextGeometry("UNIVERSO CREATIVO", {
-            font: font,
-            size: 2,
-            height: 1,
-            curveSegments: 10,
-            bevelEnabled: false,
-            bevelOffset: 0,
-            bevelSegments: 1,
-            bevelSize: 0.3,
-            bevelThickness: 1,
-          });
-          const materials = [
-            new THREE.MeshBasicMaterial({ color: 0xffffff }), // front
-            new THREE.MeshBasicMaterial({ color: 0x020226 }), // side
-          ];
-          const textMesh1 = new THREE.Mesh(geometry, materials);
-          textMesh1.position.y = -0.7;
-          // textMesh1.position.y = 2
-          textMesh1.position.x = -16;
-          // textMesh1.position.x = -13.5 - 4
-          textMesh1.position.z = 9;
+  loadTexts()
+  {
+    const textloader = new THREE.FontLoader();
+    const textmaterials = [
+      new THREE.MeshBasicMaterial({ color: 0xffffff }), // front
+      new THREE.MeshBasicMaterial({ color: 0x020226 }), // side
+    ];
+    textloader.load(
+      "./style/fonts/Montserrat ExtraBold_Regular.json",
+      (font) => {
+        {
+          const geometry = new THREE.TextGeometry("SOMOS UN ", {font: font, size: 1, height: 1, });
+          const textMesh1 = new THREE.Mesh(geometry, textmaterials);
+          textMesh1.position.set(-4,1.25,14)
           this.scene.add(textMesh1);
         }
-      );
-    }
-
-    {
-      const textloader = new THREE.FontLoader();
-      textloader.load(
-        "./style/fonts/Montserrat ExtraBold_Regular.json",
-        (font) => {
-          const geometry = new THREE.TextGeometry("SOMOS UN ", {
-            font: font,
-            size: 1,
-            height: 1,
-            curveSegments: 10,
-            bevelEnabled: false,
-            bevelOffset: 0,
-            bevelSegments: 1,
-            bevelSize: 0.3,
-            bevelThickness: 1,
-          });
-          const materials = [
-            new THREE.MeshBasicMaterial({ color: 0xffffff }), // front
-            new THREE.MeshBasicMaterial({ color: 0x020226 }), // side
-          ];
-          const textMesh1 = new THREE.Mesh(geometry, materials);
-          // textMesh1.rotation.y = 0.4
-          textMesh1.position.y = 1.25;
-          // textMesh1.position.y = 2
-          textMesh1.position.x = -4;
-          // textMesh1.position.x = -22 - 4
-          textMesh1.position.z = 14;
+        {
+          const geometry = new THREE.TextGeometry("UNIVERSO CREATIVO", {font: font, size: 2, height: 1, });
+          const textMesh1 = new THREE.Mesh(geometry, textmaterials);
+          textMesh1.position.set(-16,-0.7,9)
           this.scene.add(textMesh1);
         }
-      );
-    }
-
-    {
-      const textloader = new THREE.FontLoader();
-      textloader.load(
-        "./style/fonts/Montserrat ExtraBold_Regular.json",
-        (font) => {
-          const geometry = new THREE.TextGeometry("¿Qué hacemos por ti?", {
-            font: font,
-            size: 12,
-            height: 1,
-            curveSegments: 10,
-            bevelEnabled: false,
-            bevelOffset: 0,
-            bevelSegments: 1,
-            bevelSize: 0.3,
-            bevelThickness: 1,
-          });
-          const materials = [
-            new THREE.MeshBasicMaterial({ color: 0xffffff }), // front
-            new THREE.MeshBasicMaterial({ color: 0x090d35 }), // side
-          ];
-          const textMesh1 = new THREE.Mesh(geometry, materials);
-          // textMesh1.rotation.y = 0.4
-          // 190, 75, 100
+        {
+          const geometry = new THREE.TextGeometry("¿Qué hacemos por ti?", {font: font, size: 12, height: 1, });
+          const textMesh1 = new THREE.Mesh(geometry, textmaterials);
           textMesh1.rotation.x = 0.6;
-          textMesh1.position.x = 180;
-          textMesh1.position.y = 80;
-          textMesh1.position.z = 30;
+          textMesh1.position.set(180,80,30)
           this.scene.add(textMesh1);
         }
-      );
-    }
-
-    {
-      const torusgeometry = new THREE.TorusGeometry(50, 15, 8, 32);
-      const torusmaterial = new THREE.MeshBasicMaterial({
-        color: 0x1b0f3f,
-        wireframe: true,
-      });
-      this.torus = new THREE.Mesh(torusgeometry, torusmaterial);
-      // this.torus.position.y = 35
-      // this.torus.position.z = 30
-      this.torus.position.x = 750;
-      this.torus.position.y = 80;
-      this.torus.position.z = 55;
-      this.scene.add(this.torus);
-    }
-
-    {
-      const textloader = new THREE.FontLoader();
-      textloader.load(
-        "./style/fonts/Montserrat ExtraBold_Regular.json",
-        (font) => {
-          const geometry = new THREE.TextGeometry("Archenautas", {
-            font: font,
-            size: 22,
-            height: 5,
-            curveSegments: 10,
-            bevelEnabled: false,
-            bevelOffset: 0,
-            bevelSegments: 1,
-            bevelSize: 0.3,
-            bevelThickness: 1,
-          });
-          const materials = [
-            new THREE.MeshBasicMaterial({ color: 0xffffff }), // front
-            new THREE.MeshBasicMaterial({ color: 0x090d35 }), // side
-          ];
-          const textMesh1 = new THREE.Mesh(geometry, materials);
-          // textMesh1.rotation.y = 0.4
-          // 190, 75, 100
-          // textMesh1.rotation.y = -1.4
+        {
+          const geometry = new THREE.TextGeometry("Archenautas", {font: font, size: 22, height: 5, });
+          const textMesh1 = new THREE.Mesh(geometry, textmaterials);
           textMesh1.rotation.x = 0.5;
-          textMesh1.position.x = 1200;
-          textMesh1.position.y = 67;
-          textMesh1.position.z = 55;
+          textMesh1.position.set(1200,67,55)
           this.scene.add(textMesh1);
         }
-      );
-    }
+      }
+    );
   }
-  loadStars() {
+  loadAStar() {
     let geometry;
-    if (false) {
-      // if (Math.random() > 0.5)
-      geometry = new THREE.BoxGeometry(2, 2, 2);
-    } else {
-    }
 
+    // vertice count randomization to generate random "sphere-like" shapes
     let longitudeCount = parseInt(Math.random() * 5);
     let latitudeCount = parseInt(Math.random() * 5);
     let radiusCount = 0.5 + parseFloat(Math.random());
-    if (latitudeCount > 2) {
-      radiusCount *= radiusCount;
-    }
-    if (latitudeCount > 3) {
-      radiusCount *= radiusCount;
-    }
-    geometry = new THREE.SphereGeometry(
-      radiusCount,
-      longitudeCount,
-      latitudeCount
-    );
+    if (latitudeCount > 2) {radiusCount *= radiusCount; }
+    if (latitudeCount > 3) {radiusCount *= radiusCount; }
+    geometry = new THREE.SphereGeometry(radiusCount, longitudeCount, latitudeCount );
 
-    const material = new THREE.MeshBasicMaterial({
-      color: 0xffffff,
-      wireframe: true,
-    });
+    const material = new THREE.MeshBasicMaterial({color: 0xffffff, wireframe: true, });
 
     const star = new THREE.Mesh(geometry, material);
     star.rotation.x = THREE.MathUtils.randFloatSpread(10);
     star.rotation.y = THREE.MathUtils.randFloatSpread(10);
     star.rotation.z = THREE.MathUtils.randFloatSpread(10);
 
-    const [x, y, z] = Array(3)
-      .fill()
-      .map(() => THREE.MathUtils.randFloatSpread(500));
+    // array of random positions in x,y,z of range (500)
+    const [x, y, z] = Array(3).fill().map(() => THREE.MathUtils.randFloatSpread(500));
     // .map(() => THREE.MathUtils.randFloatSpread(50));
 
     star.position.set(x * 2, y + 200, z);
-    // star.position.set((x * 3) -50, y + 250, z);
     this.scene.add(star);
   }
 }
