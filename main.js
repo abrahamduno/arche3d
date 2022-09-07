@@ -1,6 +1,7 @@
 import "./style/core.css";
 import "./style/css.css";
 import MyScene from "./myScene.js";
+import ScrollWatcher from "./scroll.js";
 // import * as THREE from "three";
 
 import { MTLLoader } from "./res/loaders/MTLLoader.js";
@@ -12,75 +13,13 @@ function lerp(min, max, value) {
   return (max - min) * value + min;
 }
 const TheScene = new MyScene({DEBUG:true});
-function watchScroll() {
-  const t = document.body.getBoundingClientRect().top;
-  if (TheScene.DEBUG) { console.log("scroll distance from top:",t) }
+const TheScrollWatcher = new ScrollWatcher(TheScene);
 
-  if (t < -TheScene.sceneBreakpoints.default[4]) {
-    TheScene.camera.rotation.set(...TheScene.sceneVariables.camera.rot)
-
-    TheScene.camera.position.z = -TheScene.sceneVariables.camera.pos[2] + 45;
-    TheScene.camera.position.y = TheScene.sceneVariables.camera.pos[1] + 1;
-  } else {
-    TheScene.camera.position.z = TheScene.sceneVariables.camera.pos[2] + t * -0.01;
-
-    // ROTATE UP | SCREEN 1
-    if (t < -TheScene.sceneBreakpoints.default[0]) {
-      TheScene.camera.rotation.x = TheScene.sceneVariables.camera.rot[0];
-    } else {
-      TheScene.camera.rotation.x =
-        TheScene.sceneVariables.camera.rot[0] -
-        (t + TheScene.sceneBreakpoints.default[0]) * 0.00005;
-    }
-
-    // ELEVATE UP | SCREEN 2
-    if (t < -TheScene.sceneBreakpoints.default[0]) {
-      if (t > -TheScene.sceneBreakpoints.default[2]) {
-        TheScene.camera.position.y =
-          TheScene.sceneVariables.camera.pos[1] -
-          (t + TheScene.sceneBreakpoints.default[0]) * 0.0065;
-      } else {
-        TheScene.camera.position.y =
-          TheScene.sceneVariables.camera.pos[1] -
-          (-TheScene.sceneBreakpoints.default[2] +
-            TheScene.sceneBreakpoints.default[0]) *
-            0.0065;
-      }
-    } else {
-      TheScene.camera.position.y = TheScene.sceneVariables.camera.pos[1];
-    }
-
-    if (t < -TheScene.sceneBreakpoints.default[1]) {
-      TheScene.camera.position.x =
-        -TheScene.sceneVariables.camera.pos[0] -
-        (t + TheScene.sceneBreakpoints.default[1]) * 0.03;
-    } else {
-      TheScene.camera.position.x = -TheScene.sceneVariables.camera.pos[0];
-    }
-
-    if (t < -TheScene.sceneBreakpoints.default[2]) {
-      TheScene.camera.position.x =
-        -TheScene.sceneVariables.camera.pos[0] -
-        (t + TheScene.sceneBreakpoints.default[2]) * 0.25 -
-        (t + TheScene.sceneBreakpoints.default[1]) * 0.03;
-      if (t > -TheScene.sceneBreakpoints.default[3]) {
-        TheScene.camera.rotation.y =
-          TheScene.sceneVariables.camera.rot[1] +
-          (t + TheScene.sceneBreakpoints.default[2]) * 0.0002;
-      } else {
-        TheScene.camera.rotation.y =
-          TheScene.sceneVariables.camera.rot[1] +
-          (-TheScene.sceneBreakpoints.default[3] +
-            TheScene.sceneBreakpoints.default[2]) *
-            0.0002;
-      }
-    } else {
-      // TheScene.camera.position.x = -TheScene.sceneVariables.camera.pos[0]
-      TheScene.camera.rotation.y = TheScene.sceneVariables.camera.rot[1];
-    }
-  }
+function scrollUpdater(event)
+{
+  TheScrollWatcher.update(TheScene)
 }
-document.body.onscroll = watchScroll;
+document.body.onscroll = scrollUpdater
 function _animate() {
   requestAnimationFrame(_animate);
 
@@ -106,7 +45,7 @@ function _animate() {
 
   TheScene.renderer.render(TheScene.scene, TheScene.camera);
 }
-watchScroll();
+TheScrollWatcher.updateAndSetScene(TheScene)
 _animate();
 
 window.addEventListener("load", function (event)
