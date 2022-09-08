@@ -40,6 +40,10 @@ export default class MyScene {
           pos: [0,0,9],
           rot: [0.5,0,0],
           fov: 75,
+          fovSettings: {
+            mobile: 120,
+            desktop: 75,
+          },
           minReach: 0.1,
           maxReach: 1000,
         },
@@ -80,6 +84,7 @@ export default class MyScene {
   }
 
   init() {
+    this.setWindowRatio();
     this.setWindowSettings();
     this.setScene();
 
@@ -94,15 +99,14 @@ export default class MyScene {
     this.renderer.render(this.scene, this.camera);
   }
 
-  setWindowSettings() {
+  setWindowRatio() {
     this.DOM.ratio = window.innerWidth / window.innerHeight;
+    let platformKey = this.DOM.ratio > 1 ? 'desktop' : 'mobile'
+    this.sceneBreakpoints.default = this.sceneBreakpoints[platformKey]
+    this.sceneVariables.camera.fov = this.sceneVariables.camera.fovSettings[platformKey]
+  }
 
-    if (this.DOM.ratio > 1) {
-      this.sceneBreakpoints.default = this.sceneBreakpoints.desktop;
-    } else {
-      this.sceneBreakpoints.default = this.sceneBreakpoints.mobile;
-    }
-
+  setWindowSettings() {
     this.DOM.height = Math.max(
       document.body.scrollHeight,
       document.body.offsetHeight,
@@ -110,6 +114,11 @@ export default class MyScene {
       document.documentElement.scrollHeight,
       document.documentElement.offsetHeight
     );
+  }
+  OnWindowResize() {
+    this.camera.aspect = window.innerWidth / window.innerHeight;
+    this.camera.updateProjectionMatrix();
+    this.renderer.setSize(window.innerWidth, window.innerHeight);
   }
   setScene() {
     this.scene = new THREE.Scene();
@@ -317,7 +326,7 @@ export default class MyScene {
         {
           const geometry = new THREE.TextGeometry("SOMOS UN ", {font: font, size: 1, height: 1, });
           const textMesh1 = new THREE.Mesh(geometry, textmaterials);
-          textMesh1.position.set(-4,1.25,14)
+          textMesh1.position.set(-4,1.25,10)
           this.scene.add(textMesh1);
         }
         {

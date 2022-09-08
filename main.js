@@ -15,6 +15,9 @@ const TheScene = new MyScene({DEBUG:true});
 const TheScrollWatcher = new ScrollWatcher(TheScene);
 function scrollUpdater(event) { TheScrollWatcher.update() }
 document.body.onscroll = scrollUpdater
+window.addEventListener('resize', () => {
+  TheScene.OnWindowResize();
+}, false);
 
 function _animate() {
   requestAnimationFrame(_animate);
