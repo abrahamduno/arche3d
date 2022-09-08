@@ -1,5 +1,7 @@
 import * as THREE from "three";
 import { OBJLoader } from "../loaders/OBJLoader.js";
+import { getInitialState } from "./get_initial_state.js";
+import { loadStar } from "./load_stars.js";
 
 //No se si es necesario
 import { MTLLoader } from "../loaders/MTLLoader.js";
@@ -9,47 +11,47 @@ const BASE_URL = "http://localhost:3000/";
 const BASE_ASSET_URL = "./res";
 
 export default class MyScene {
-  getInitialState() {
-    return {
-      DOM: {},
-      Objects: {
-        sat: {
-          file: "sat.obj",
-          path: BASE_ASSET_URL + "/models/",
-          wireframe: true,
-          pos: [85, 35, 45],
-          rot: [0, 0.7, 1],
-          scale: [3, 3, 3],
-        },
-        rocket: {
-          file: "rocket.obj",
-          path: BASE_ASSET_URL + "/models/",
-          wiremat: true,
-          pos: [1280, 92, 35],
-          rot: [0.5, 1.5, 0],
-          scale: [18, 18, 18],
-        },
-      },
-      sceneBreakpoints: {
-        default: [],
-        mobile: [1600, 2400, 4200, 5500, 8500],
-        desktop: [2400, 3500, 7500, 11000, 15000],
-      },
-      sceneVariables: {
-        camera: {
-          pos: [0,0,9],
-          rot: [0.5,0,0],
-          fov: 75,
-          fovSettings: {
-            mobile: 120,
-            desktop: 75,
-          },
-          minReach: 0.1,
-          maxReach: 1000,
-        },
-      },
-    };
-  }
+  // getInitialState() {
+  //   return {
+  //     DOM: {},
+  //     Objects: {
+  //       sat: {
+  //         file: "sat.obj",
+  //         path: BASE_ASSET_URL + "/models/",
+  //         wireframe: true,
+  //         pos: [85, 35, 45],
+  //         rot: [0, 0.7, 1],
+  //         scale: [3, 3, 3],
+  //       },
+  //       rocket: {
+  //         file: "rocket.obj",
+  //         path: BASE_ASSET_URL + "/models/",
+  //         wiremat: true,
+  //         pos: [1280, 92, 35],
+  //         rot: [0.5, 1.5, 0],
+  //         scale: [18, 18, 18],
+  //       },
+  //     },
+  //     sceneBreakpoints: {
+  //       default: [],
+  //       mobile: [1600, 2400, 4200, 5500, 8500],
+  //       desktop: [2400, 3500, 7500, 11000, 15000],
+  //     },
+  //     sceneVariables: {
+  //       camera: {
+  //         pos: [0, 0, 9],
+  //         rot: [0.5, 0, 0],
+  //         fov: 75,
+  //         fovSettings: {
+  //           mobile: 120,
+  //           desktop: 75,
+  //         },
+  //         minReach: 0.1,
+  //         maxReach: 1000,
+  //       },
+  //     },
+  //   };
+  // }
 
   constructor(
     _initialState = {
@@ -60,7 +62,7 @@ export default class MyScene {
       sceneVariables: {},
     }
   ) {
-    const initialState = this.getInitialState();
+    const initialState = getInitialState();
 
     this.DEBUG = _initialState.DEBUG;
     this.DOM = {
@@ -91,7 +93,11 @@ export default class MyScene {
     this.loadSkeletonObjects();
     this.loadWireframeObjects();
 
-    Array(200).fill().forEach(() => { this.loadAStar(); });
+    Array(200)
+      .fill()
+      .forEach(() => {
+        this.loadAStar();
+      });
     this.loadTexts();
     this.loadSpaceObjects();
 
@@ -101,9 +107,10 @@ export default class MyScene {
 
   setWindowRatio() {
     this.DOM.ratio = window.innerWidth / window.innerHeight;
-    let platformKey = this.DOM.ratio > 1 ? 'desktop' : 'mobile'
-    this.sceneBreakpoints.default = this.sceneBreakpoints[platformKey]
-    this.sceneVariables.camera.fov = this.sceneVariables.camera.fovSettings[platformKey]
+    let platformKey = this.DOM.ratio > 1 ? "desktop" : "mobile";
+    this.sceneBreakpoints.default = this.sceneBreakpoints[platformKey];
+    this.sceneVariables.camera.fov =
+      this.sceneVariables.camera.fovSettings[platformKey];
   }
 
   setWindowSettings() {
@@ -132,8 +139,8 @@ export default class MyScene {
       this.sceneVariables.camera.minReach,
       this.sceneVariables.camera.maxReach
     );
-    camera.position.set(...this.sceneVariables.camera.pos)
-    camera.rotation.set(...this.sceneVariables.camera.rot)
+    camera.position.set(...this.sceneVariables.camera.pos);
+    camera.rotation.set(...this.sceneVariables.camera.rot);
     this.camera = camera;
   }
   setRenderer() {
@@ -151,7 +158,7 @@ export default class MyScene {
       const percentComplete = (xhr.loaded / xhr.total) * 100;
 
       if (this.DEBUG) {
-        console.log("loading objects...")
+        console.log("loading objects...");
         let loadTarget = xhr.currentTarget.responseURL.replace(BASE_URL, "");
         console.log(
           loadTarget,
@@ -228,8 +235,8 @@ export default class MyScene {
             });
           }
         });
-        object.position.set(0,-0.85,-35)
-        object.scale.set(15,15,15)
+        object.position.set(0, -0.85, -35);
+        object.scale.set(15, 15, 15);
         this.scene.add(object);
       },
       this.onLoadProgress
@@ -248,9 +255,9 @@ export default class MyScene {
           });
 
           // object.castshadow = - 1;
-          object.position.set(0,-0.85- 0.025,-35)
+          object.position.set(0, -0.85 - 0.025, -35);
           // object.position.x = - 3;
-          object.scale.set(15,15,15)
+          object.scale.set(15, 15, 15);
           this.scene.add(object);
         },
         this.onLoadProgress
@@ -276,7 +283,7 @@ export default class MyScene {
     };
 
     let theTorus = {
-      pos: [750,80,55],
+      pos: [750, 80, 55],
       torus: [50, 15, 8, 32],
     };
 
@@ -291,7 +298,10 @@ export default class MyScene {
 
     const geometry = new THREE.TorusGeometry(...theRing.torus);
     const ringTexture = new THREE.TextureLoader().load("res/img/998.jpg");
-    this.myRing = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ map: ringTexture }) );
+    this.myRing = new THREE.Mesh(
+      geometry,
+      new THREE.MeshBasicMaterial({ map: ringTexture })
+    );
     this.myRing.position.set(...theRing.pos);
     this.myRing.rotation.set(...theRing.rot);
     this.myRing.scale.set(...theRing.scale);
@@ -299,22 +309,30 @@ export default class MyScene {
 
     this.rocketpivot = new THREE.Group();
     const rocketgeometry = new THREE.BoxGeometry(...theRocketCenter.box);
-    let rocketMesh = new THREE.Mesh(rocketgeometry, new THREE.MeshBasicMaterial({ color: 0xffffff, wireframe: true }) );
-    let rocketSolid = new THREE.Mesh(rocketgeometry, new THREE.MeshBasicMaterial({ color: 0x000000 }) );
+    let rocketMesh = new THREE.Mesh(
+      rocketgeometry,
+      new THREE.MeshBasicMaterial({ color: 0xffffff, wireframe: true })
+    );
+    let rocketSolid = new THREE.Mesh(
+      rocketgeometry,
+      new THREE.MeshBasicMaterial({ color: 0x000000 })
+    );
     this.rocketpivot.add(rocketMesh);
     this.rocketpivot.add(rocketSolid);
     this.rocketpivot.position.set(...theRocketCenter.pos);
     this.scene.add(this.rocketpivot);
 
     const torusgeometry = new THREE.TorusGeometry(...theTorus.torus);
-    const torusmaterial = new THREE.MeshBasicMaterial({color: 0x1b0f3f, wireframe: true, });
+    const torusmaterial = new THREE.MeshBasicMaterial({
+      color: 0x1b0f3f,
+      wireframe: true,
+    });
     this.torus = new THREE.Mesh(torusgeometry, torusmaterial);
-    this.torus.position.set(...theTorus.pos)
+    this.torus.position.set(...theTorus.pos);
     this.scene.add(this.torus);
   }
 
-  loadTexts()
-  {
+  loadTexts() {
     const textloader = new THREE.FontLoader();
     const textmaterials = [
       new THREE.MeshBasicMaterial({ color: 0xffffff }), // front
@@ -324,57 +342,53 @@ export default class MyScene {
       "./res/style/fonts/Montserrat ExtraBold_Regular.json",
       (font) => {
         {
-          const geometry = new THREE.TextGeometry("SOMOS UN ", {font: font, size: 1, height: 1, });
+          const geometry = new THREE.TextGeometry("SOMOS UN ", {
+            font: font,
+            size: 1,
+            height: 1,
+          });
           const textMesh1 = new THREE.Mesh(geometry, textmaterials);
-          textMesh1.position.set(-4,1.25,10)
+          textMesh1.position.set(-4, 1.25, 10);
           this.scene.add(textMesh1);
         }
         {
-          const geometry = new THREE.TextGeometry("UNIVERSO CREATIVO", {font: font, size: 2, height: 1, });
+          const geometry = new THREE.TextGeometry("UNIVERSO CREATIVO", {
+            font: font,
+            size: 2,
+            height: 1,
+          });
           const textMesh1 = new THREE.Mesh(geometry, textmaterials);
-          textMesh1.position.set(-16,-0.7,9)
+          textMesh1.position.set(-16, -0.7, 9);
           this.scene.add(textMesh1);
         }
         {
-          const geometry = new THREE.TextGeometry("¿Qué hacemos por ti?", {font: font, size: 12, height: 1, });
+          const geometry = new THREE.TextGeometry("¿Qué hacemos por ti?", {
+            font: font,
+            size: 12,
+            height: 1,
+          });
           const textMesh1 = new THREE.Mesh(geometry, textmaterials);
           textMesh1.rotation.x = 0.6;
-          textMesh1.position.set(180,80,30)
+          textMesh1.position.set(180, 80, 30);
           this.scene.add(textMesh1);
         }
         {
-          const geometry = new THREE.TextGeometry("Archenautas", {font: font, size: 22, height: 5, });
+          const geometry = new THREE.TextGeometry("Archenautas", {
+            font: font,
+            size: 22,
+            height: 5,
+          });
           const textMesh1 = new THREE.Mesh(geometry, textmaterials);
           textMesh1.rotation.x = 0.5;
-          textMesh1.position.set(1200,67,55)
+          textMesh1.position.set(1200, 67, 55);
           this.scene.add(textMesh1);
         }
       }
     );
   }
   loadAStar() {
-    let geometry;
+    let newStars = loadStar();
 
-    // vertice count randomization to generate random "sphere-like" shapes
-    let longitudeCount = parseInt(Math.random() * 5);
-    let latitudeCount = parseInt(Math.random() * 5);
-    let radiusCount = 0.5 + parseFloat(Math.random());
-    if (latitudeCount > 2) {radiusCount *= radiusCount; }
-    if (latitudeCount > 3) {radiusCount *= radiusCount; }
-    geometry = new THREE.SphereGeometry(radiusCount, longitudeCount, latitudeCount );
-
-    const material = new THREE.MeshBasicMaterial({color: 0xffffff, wireframe: true, });
-
-    const star = new THREE.Mesh(geometry, material);
-    star.rotation.x = THREE.MathUtils.randFloatSpread(10);
-    star.rotation.y = THREE.MathUtils.randFloatSpread(10);
-    star.rotation.z = THREE.MathUtils.randFloatSpread(10);
-
-    // array of random positions in x,y,z of range (500)
-    const [x, y, z] = Array(3).fill().map(() => THREE.MathUtils.randFloatSpread(500));
-    // .map(() => THREE.MathUtils.randFloatSpread(50));
-
-    star.position.set(x * 2, y + 200, z);
-    this.scene.add(star);
+    let stars = this.scene.add(newStars);
   }
 }
