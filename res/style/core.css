@@ -167,10 +167,10 @@ canvas {
   @media screen and (max-width: 768px)
   {
     section {
-      grid-column: 2 / 12;
+      grid-column: 1 / 13;
     }
     .left {
-      grid-column: 2 / 12;
+      grid-column: 1 / 13;
     }
     .right {
       grid-column: 1 / 13;

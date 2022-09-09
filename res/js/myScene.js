@@ -67,6 +67,7 @@ export default class MyScene {
       document.documentElement.scrollHeight,
       document.documentElement.offsetHeight
     );
+    console.log("full height",this.DOM.height)
   }
   OnWindowResize() {
     this.camera.aspect = window.innerWidth / window.innerHeight;
