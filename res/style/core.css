@@ -156,6 +156,20 @@ canvas {
     line-height: 1.5;
     margin-bottom: var(--spacing);
   }
+  .left {
+    grid-column: 6 / 12;
+  }
+
+
+  @media screen and (max-width: 768px)
+  {
+    section {
+      grid-column: 2 / 12;
+    }
+    .left {
+      grid-column: 2 / 12;
+    }
+  }
 
   blockquote {
     margin: 0;
@@ -171,11 +185,6 @@ canvas {
     display: inline;
     line-height: 1;
   }
-
-  .left {
-    grid-column: 6 / 12;
-  }
-
 
 .shake-hue-slow-hover:hover { animation: shakehueslow 10s; animation-iteration-count: infinite;}
 .shake-hue { animation: shakehue 5s; animation-iteration-count: infinite;}

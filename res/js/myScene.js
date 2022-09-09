@@ -32,7 +32,7 @@ export default class MyScene {
       },
       sceneBreakpoints: {
         default: [],
-        mobile: [1600, 2400, 4200, 5500, 8500],
+        mobile: [2400, 3700, 8000, 9000, 16000],
         desktop: [2400, 3500, 7500, 11000, 15000],
       },
       sceneVariables: {
