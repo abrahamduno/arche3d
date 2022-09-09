@@ -2,6 +2,7 @@ import * as THREE from "three";
 import { OBJLoader } from "../loaders/OBJLoader.js";
 import { getInitialState } from "./get_initial_state.js";
 import { loadStar } from "./load_stars.js";
+import { newtorus, newring } from "./load_space_objects.js";
 
 //No se si es necesario
 import { MTLLoader } from "../loaders/MTLLoader.js";
@@ -211,29 +212,12 @@ export default class MyScene {
       );
   }
   loadSpaceObjects() {
-    let theRocketRef = { ...this.Objects.rocket };
-    let theRocketCenter = {
-      pos: [theRocketRef.pos[0] - 20, theRocketRef.pos[1], theRocketRef.pos[2]],
-      rot: [0, 0.5, 1],
-      box: [35, 35, 35],
-    };
+    // ## planet ##
     let thePlanet = {
       pos: [-200, 120, -300],
       rot: [0, 0.5, 1],
       sphere: [32, 48, 48],
     };
-    let theRing = {
-      pos: [...thePlanet.pos],
-      rot: [2.4, 0, 3],
-      torus: [45, 8, 12, 64],
-      scale: [1, 1, 0.02],
-    };
-
-    let theTorus = {
-      pos: [750, 80, 55],
-      torus: [50, 15, 8, 32],
-    };
-
     const planetTexture = new THREE.TextureLoader().load("res/img/444.jpg");
     this.myPlanet = new THREE.Mesh(
       new THREE.SphereGeometry(...thePlanet.sphere),
@@ -242,17 +226,39 @@ export default class MyScene {
     this.myPlanet.position.set(...thePlanet.pos);
     this.myPlanet.rotation.set(...thePlanet.rot);
     this.scene.add(this.myPlanet);
+    // ## end planet ##
 
-    const geometry = new THREE.TorusGeometry(...theRing.torus);
-    const ringTexture = new THREE.TextureLoader().load("res/img/998.jpg");
-    this.myRing = new THREE.Mesh(
-      geometry,
-      new THREE.MeshBasicMaterial({ map: ringTexture })
-    );
-    this.myRing.position.set(...theRing.pos);
-    this.myRing.rotation.set(...theRing.rot);
-    this.myRing.scale.set(...theRing.scale);
+    // ## ring ##
+    // let theRing = {
+    //   pos: [...thePlanet.pos],
+    //   // pos: [-200, 120, -300],
+    //   rot: [2.4, 0, 3],
+    //   torus: [45, 8, 12, 64],
+    //   scale: [1, 1, 0.02],
+    // };
+    // const geometry = new THREE.TorusGeometry(...theRing.torus);
+    // const ringTexture = new THREE.TextureLoader().load("res/img/998.jpg");
+    // this.myRing = new THREE.Mesh(
+    //   geometry,
+    //   new THREE.MeshBasicMaterial({ map: ringTexture })
+    // );
+
+    let addring = newring();
+    this.myRing = addring;
+
+    // this.myRing.position.set(...theRing.pos);
+    // this.myRing.rotation.set(...theRing.rot);
+    // this.myRing.scale.set(...theRing.scale);
     this.scene.add(this.myRing);
+    // ## end ring ##
+
+    // ## rocket ##
+    let theRocketRef = { ...this.Objects.rocket };
+    let theRocketCenter = {
+      pos: [theRocketRef.pos[0] - 20, theRocketRef.pos[1], theRocketRef.pos[2]],
+      rot: [0, 0.5, 1],
+      box: [35, 35, 35],
+    };
 
     this.rocketpivot = new THREE.Group();
     const rocketgeometry = new THREE.BoxGeometry(...theRocketCenter.box);
@@ -268,17 +274,13 @@ export default class MyScene {
     this.rocketpivot.add(rocketSolid);
     this.rocketpivot.position.set(...theRocketCenter.pos);
     this.scene.add(this.rocketpivot);
+    // ## end rocket ##
 
-    const torusgeometry = new THREE.TorusGeometry(...theTorus.torus);
-    const torusmaterial = new THREE.MeshBasicMaterial({
-      color: 0x1b0f3f,
-      wireframe: true,
-    });
-    this.torus = new THREE.Mesh(torusgeometry, torusmaterial);
-    this.torus.position.set(...theTorus.pos);
+    //Torus
+    let addtorus = newtorus();
+    this.torus = addtorus;
     this.scene.add(this.torus);
   }
-
   loadTexts() {
     const textloader = new THREE.FontLoader();
     const textmaterials = [
@@ -335,7 +337,7 @@ export default class MyScene {
   }
   loadAStar() {
     let newStars = loadStar();
-
-    let stars = this.scene.add(newStars);
+    // let stars = this.scene.add(newStars);
+    this.scene.add(newStars);
   }
 }
