@@ -25,7 +25,7 @@ export function getInitialState() {
     },
     sceneBreakpoints: {
       default: [],
-      mobile: [1900, 4500, 8500, 9000, 17500],
+      mobile: [1900, 4500, 8500, 9000, 16500],
       desktop: [2400, 3500, 7500, 11000, 15000],
     },
     sceneVariables: {
