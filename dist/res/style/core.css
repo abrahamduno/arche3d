@@ -146,6 +146,9 @@ canvas {
     header {
       grid-column: span 12;
     }
+    .smallMobileText {
+      font-size: 0.75em;
+    }
   }
 
   section {
@@ -168,6 +171,9 @@ canvas {
     }
     .left {
       grid-column: 2 / 12;
+    }
+    .right {
+      grid-column: 1 / 13;
     }
   }
 
