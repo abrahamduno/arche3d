@@ -51,8 +51,8 @@ _animate();
 window.addEventListener("load", function (event)
 {
   document .getElementById("mainMenuModal").addEventListener("click", function (event) {
+    // console.log("asd");
     document.body.classList.toggle("noScroll");
-    console.log("asd");
     document.getElementById("mainModal").classList.toggle("modalState");
     document
       .getElementById("mainMenuContent")
@@ -60,9 +60,10 @@ window.addEventListener("load", function (event)
   });
 
   document.querySelectorAll(".modalLinkButton").forEach((adom) => {
+    // alert()
     adom.addEventListener("click", function (event) {
-      // alert()
-      document.getElementById("mainModal").classList.toggle("modalState");
+    document.body.classList.toggle("noScroll");
+    document.getElementById("mainModal").classList.toggle("modalState");
       document
         .getElementById("mainMenuContent")
         .classList.toggle("displayNone");
