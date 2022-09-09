@@ -2,7 +2,7 @@ import * as THREE from "three";
 import { OBJLoader } from "../loaders/OBJLoader.js";
 import { getInitialState } from "./get_initial_state.js";
 import { loadStar } from "./load_stars.js";
-import { newtorus, newring } from "./load_space_objects.js";
+import { newtorus, newring, newplanet } from "./load_space_objects.js";
 
 //No se si es necesario
 import { MTLLoader } from "../loaders/MTLLoader.js";
@@ -24,10 +24,16 @@ export default class MyScene {
     const initialState = getInitialState();
 
     this.DEBUG = _initialState.DEBUG;
-    this.DOM =                { ...initialState.DOM, ..._initialState.DOM, };
-    this.Objects =            { ...initialState.Objects, ..._initialState.Objects, };
-    this.sceneBreakpoints =   { ...initialState.sceneBreakpoints, ..._initialState.sceneBreakpoints, };
-    this.sceneVariables =     { ...initialState.sceneVariables, ..._initialState.sceneVariables, };
+    this.DOM = { ...initialState.DOM, ..._initialState.DOM };
+    this.Objects = { ...initialState.Objects, ..._initialState.Objects };
+    this.sceneBreakpoints = {
+      ...initialState.sceneBreakpoints,
+      ..._initialState.sceneBreakpoints,
+    };
+    this.sceneVariables = {
+      ...initialState.sceneVariables,
+      ..._initialState.sceneVariables,
+    };
 
     this.init();
   }
@@ -68,7 +74,7 @@ export default class MyScene {
       document.documentElement.scrollHeight,
       document.documentElement.offsetHeight
     );
-    console.log("full height",this.DOM.height)
+    console.log("full height", this.DOM.height);
   }
   OnWindowResize() {
     this.camera.aspect = window.innerWidth / window.innerHeight;
@@ -213,42 +219,14 @@ export default class MyScene {
   }
   loadSpaceObjects() {
     // ## planet ##
-    let thePlanet = {
-      pos: [-200, 120, -300],
-      rot: [0, 0.5, 1],
-      sphere: [32, 48, 48],
-    };
-    const planetTexture = new THREE.TextureLoader().load("res/img/444.jpg");
-    this.myPlanet = new THREE.Mesh(
-      new THREE.SphereGeometry(...thePlanet.sphere),
-      new THREE.MeshBasicMaterial({ map: planetTexture })
-    );
-    this.myPlanet.position.set(...thePlanet.pos);
-    this.myPlanet.rotation.set(...thePlanet.rot);
+    let addplanet = newplanet();
+    this.myPlanet = addplanet;
     this.scene.add(this.myPlanet);
     // ## end planet ##
 
     // ## ring ##
-    // let theRing = {
-    //   pos: [...thePlanet.pos],
-    //   // pos: [-200, 120, -300],
-    //   rot: [2.4, 0, 3],
-    //   torus: [45, 8, 12, 64],
-    //   scale: [1, 1, 0.02],
-    // };
-    // const geometry = new THREE.TorusGeometry(...theRing.torus);
-    // const ringTexture = new THREE.TextureLoader().load("res/img/998.jpg");
-    // this.myRing = new THREE.Mesh(
-    //   geometry,
-    //   new THREE.MeshBasicMaterial({ map: ringTexture })
-    // );
-
     let addring = newring();
     this.myRing = addring;
-
-    // this.myRing.position.set(...theRing.pos);
-    // this.myRing.rotation.set(...theRing.rot);
-    // this.myRing.scale.set(...theRing.scale);
     this.scene.add(this.myRing);
     // ## end ring ##
 

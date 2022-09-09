@@ -41,4 +41,20 @@ function newring() {
   return myRing;
 }
 
-export { newtorus, newring };
+function newplanet() {
+  let thePlanet = {
+    pos: [-200, 120, -300],
+    rot: [0, 0.5, 1],
+    sphere: [32, 48, 48],
+  };
+  const planetTexture = new THREE.TextureLoader().load("res/img/444.jpg");
+  let myPlanet = new THREE.Mesh(
+    new THREE.SphereGeometry(...thePlanet.sphere),
+    new THREE.MeshBasicMaterial({ map: planetTexture })
+  );
+  myPlanet.position.set(...thePlanet.pos);
+  myPlanet.rotation.set(...thePlanet.rot);
+
+  return myPlanet;
+}
+export { newtorus, newring, newplanet };
