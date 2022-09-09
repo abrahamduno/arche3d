@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "dev": "vite",
-    "build": "vite build && cp -rv res/models dist/ && cp -rv res/style dist/",
+    "build": "vite build && cp -rv res dist",
     "serve": "vite preview"
   },
   "devDependencies": {
