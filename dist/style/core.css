@@ -31,6 +31,7 @@
   scroll-behavior: smooth;
 }
 
+
 #mainMenuContent {
   /* display: none; */
   flex-basis: 100%;
@@ -79,7 +80,6 @@ canvas {
 }
 
 .textCard {
-  border-radius: 25px;
   box-shadow: 5px 5px 25px #00000077;
 }
 .aLink {
@@ -111,7 +111,7 @@ h1, h2, h3, blockquote {
   font-family: 'Montserrat', sans-serif;
 
   /* font-family: 'MatriceBold', Fallback, sans-serif; */
-  
+
   /* font-family: 'TTNorms', Fallback, sans-serif; */
   /* font-family: elevon, sans-serif;
   font-weight: 700;
@@ -156,6 +156,20 @@ canvas {
     line-height: 1.5;
     margin-bottom: var(--spacing);
   }
+  .left {
+    grid-column: 6 / 12;
+  }
+
+
+  @media screen and (max-width: 768px)
+  {
+    section {
+      grid-column: 2 / 12;
+    }
+    .left {
+      grid-column: 2 / 12;
+    }
+  }
 
   blockquote {
     margin: 0;
@@ -171,11 +185,6 @@ canvas {
     display: inline;
     line-height: 1;
   }
-
-  .left {
-    grid-column: 6 / 12;
-  }
-
 
 .shake-hue-slow-hover:hover { animation: shakehueslow 10s; animation-iteration-count: infinite;}
 .shake-hue { animation: shakehue 5s; animation-iteration-count: infinite;}

@@ -23,22 +23,10 @@ export default class MyScene {
     const initialState = getInitialState();
 
     this.DEBUG = _initialState.DEBUG;
-    this.DOM = {
-      ...initialState.DOM,
-      ..._initialState.DOM,
-    };
-    this.Objects = {
-      ...initialState.Objects,
-      ..._initialState.Objects,
-    };
-    this.sceneBreakpoints = {
-      ...initialState.sceneBreakpoints,
-      ..._initialState.sceneBreakpoints,
-    };
-    this.sceneVariables = {
-      ...initialState.sceneVariables,
-      ..._initialState.sceneVariables,
-    };
+    this.DOM =                { ...initialState.DOM, ..._initialState.DOM, };
+    this.Objects =            { ...initialState.Objects, ..._initialState.Objects, };
+    this.sceneBreakpoints =   { ...initialState.sceneBreakpoints, ..._initialState.sceneBreakpoints, };
+    this.sceneVariables =     { ...initialState.sceneVariables, ..._initialState.sceneVariables, };
 
     this.init();
   }
