@@ -159,6 +159,9 @@ canvas {
     line-height: 1.5;
     margin-bottom: var(--spacing);
   }
+  section.wide {
+    grid-column: 1 / 13;
+  }
   .left {
     grid-column: 6 / 12;
   }

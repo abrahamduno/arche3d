@@ -297,7 +297,7 @@ export default class MyScene {
             height: 1,
           });
           const textMesh1 = new THREE.Mesh(geometry, textmaterials);
-          textMesh1.position.set(-4, 1.25, 10);
+          textMesh1.position.set(-4, 1.5, 10);
           this.scene.add(textMesh1);
         }
         {
