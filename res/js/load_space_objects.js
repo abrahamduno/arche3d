@@ -23,12 +23,12 @@ function newtorus() {
 function newring() {
   let theRing = {
     pos: [-200, 120, -300],
-    rot: [2.4, 0, 3],
+    rot: [2.4, 0, -2],
     torus: [45, 8, 12, 64],
     scale: [1, 1, 0.02],
   };
   const geometry = new THREE.TorusGeometry(...theRing.torus);
-  const ringTexture = new THREE.TextureLoader().load("res/img/998.jpg");
+  const ringTexture = new THREE.TextureLoader().load("res/img/DEGRADE--ANILLOS-PLANETA.jpg");
   let myRing = new THREE.Mesh(
     geometry,
     new THREE.MeshBasicMaterial({ map: ringTexture })

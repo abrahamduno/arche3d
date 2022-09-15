@@ -215,10 +215,10 @@ export default class MyScene {
     // ## planet ##
     let thePlanet = {
       pos: [-200, 120, -300],
-      rot: [0, 0.5, 1],
+      rot: [0, 0, 0],
       sphere: [32, 48, 48],
     };
-    const planetTexture = new THREE.TextureLoader().load("res/img/444.jpg");
+    const planetTexture = new THREE.TextureLoader().load("res/img/DEGRADE-PLANETA.jpg");
     this.myPlanet = new THREE.Mesh(
       new THREE.SphereGeometry(...thePlanet.sphere),
       new THREE.MeshBasicMaterial({ map: planetTexture })
