@@ -6,7 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Universo Arche</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800;900&family=Raleway&display=swap" rel="stylesheet">
-
+    
+    <!-- <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer">
   </head>
   <body>
@@ -177,10 +179,39 @@
 
 
       <div class="hidden block grid-column-12" style="height: 1100px;"> . </div>
-      <section class="light wide" style="background: #020226;">
+      <section class="light wide" style="background: #020226;" id="templateViewId">
         <h1 style="opacity: 0.6; text-align: center; letter-spacing: 5px;">Archenautas</h1>
         <div class="flex-md2x-wrap flex-xs2sm-wrap pb-8">
+          <input data-watch="testfield" type="text" style="display:none" />
+          
+          <div class="flex-wrap flex-1">
+            <h6 data-click="updatePerson" data-args="0" class="clickable pa-3 opacity-hover-75">
+              person 3
+            </h6>
+            <h6 data-click="updatePerson" data-args="1" class="clickable pa-3 opacity-hover-75">
+              person 1
+            </h6>
+            <h6 data-click="updatePerson" data-args="2" class="clickable pa-3 opacity-hover-75">
+              person 2
+            </h6>
+        </div>
+        <div class="flex-column flex-1">
+          <div data-ref="selectedperson">
+            <h1>?</h1>
+            <div>CREATIVIDAD</div>
+            <div>DISENADORA</div>
+            <div>LIDERAZGO</div>
+            <div>CURIOSIDAD</div>
+          </div>
+        </div>
+          
+        </div>
+          <div class="flex-md2x-wrap flex-xs2sm-wrap pb-8">
+
+
           <div class="flex-column flex-1 ">
+            <!-- *<div id="app"></div>* -->
+
             <img src="./res/img/archenautas.jpg" alt="" style="max-width: 100%;">
             <!-- <p>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
@@ -252,5 +283,6 @@
     
 
     <script type="module" src="./main.js"></script>
+    <script type="module" src="./vuelike.js"></script>
   </body>
 </html>
