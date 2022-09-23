@@ -10,27 +10,39 @@ class jQueryTemplateView {
 			people: [
 				{
 					name: "Deisy Esteban",
+					job: "Directora <br/> Creativa",
+					joblength: "5 Años",
 					// stars: 4,
-					creativity: 9,
-					curiosity: 6,
-					design: 9,
-					leadership: 3,
+					skills: {
+						Creatividad: 9,
+						Curiosidad: 6,
+						Diseno: 9,
+						Liderazgo: 3,
+					},
 				},
 				{
 					name: "Pedro Perez",
+					job: "Curador de <br/> Contenido",
+					joblength: "2 Años",
 					// stars: 5,
-					creativity: 7,
-					curiosity: 8,
-					design: 8,
-					leadership: 7,
+					skills: {
+						Creatividad: 7,
+						Curiosidad: 8,
+						Diseno: 8,
+						Liderazgo: 7,
+					},
 				},
 				{
-					name: "Linda McLovin",
+					name: "Ronnie McLovin",
+					job: "Diseñador <br/> Grafico",
+					joblength: "1 Años",
 					// stars: 3,
-					creativity: 7,
-					curiosity: 6,
-					design: 2,
-					leadership: 6,
+					skills: {
+						Creatividad: 7,
+						Curiosidad: 6,
+						Diseno: 2,
+						Liderazgo: 6,
+					},
 				},
 			],
 		}, data);
@@ -65,23 +77,81 @@ class jQueryTemplateView {
 				const newKey = e.currentTarget.dataset.args
 				if (!this.data.people[newKey]) return
 
-				const personArgs = Object.keys(this.data.people[newKey])
+				this.$container.find(`#person_name`)[0].innerHTML = this.data.people[newKey].name
+				this.$container.find(`#person_job`)[0].innerHTML = this.data.people[newKey].job
+				this.$container.find(`#person_joblength`)[0].innerHTML = this.data.people[newKey].joblength
+
+				const personArgs = Object.keys(this.data.people[newKey].skills)
 				for (var i = 0; i < personArgs.length; i++)
 				{
-					this.refs.selectedperson.children[i].innerHTML = `${personArgs[i]}: ${this.data.people[newKey][personArgs[i]]}`
+					if (!this.$container.find(`#person_${personArgs[i]}`)[0]) return
+					this.$container.find(`#person_${personArgs[i]}`)[0].innerHTML = personArgs[i] == "name" ? this.data.people[newKey].skills[personArgs[i]] : `
+						<div>
+							${personArgs[i]} <br> 
+							<div style="width:${this.data.people[newKey].skills[personArgs[i]]*5}px; height: 10px; background: #94D048;">
+							</div>
+						</div>`
 				}
 			},
 		};
 
+		this.initDOM();
 		this.initWatchers();
 		this.initRefs();
+	}
+
+	initDOM()
+	{
+		let self = this;
+
+		const references = this.$container.find("[data-for-click]")
+
+		for (var i = 0; i < references.length; i++)
+		{
+			const callbackFunction = references[i].dataset.forClick
+			console.log(callbackFunction)
+			let theList = this.data[references[i].dataset['items']]
+			let z = 0
+
+			for (var j = 0; j < theList.length; j++)
+			{
+				z = j
+				let newClone = references[i].children[0].cloneNode()
+				newClone.innerHTML = theList[j].name
+				newClone.innerHTML = `
+					<div class="flex-column">
+						${theList[j].name}
+						<br/>
+						<img style="width: 50px; height: 50px;" src="res/img/${j}.jpg"/>
+					</div>
+				`
+				newClone.dataset.args = j
+				newClone.addEventListener('click', function(event)
+				{
+					self.clickers[callbackFunction](event);
+				});
+				references[i].append(newClone)
+			}
+			references[i].removeChild(references[i].children[0])
+			references[i].children[0].click()
+			// self.clickers[callbackFunction](z)
+			// this.refs[references[i].dataset.ref] = references[i]
+
+			// references[i].on('click', function(event)
+			// {
+			// 	self.clickers[references[i].data('click')](event);
+			// 	<h6 data-args="0" class="clickable pa-3 opacity-hover-75">
+			// 	  person 3
+			// 	</h6>
+			// });
+		}
 	}
 
 	initRefs()
 	{
 		let self = this;
 
-		const references = $("[data-ref]")
+		const references = this.$container.find("[data-ref]")
 
 		for (var i = 0; i < references.length; i++)
 		{
