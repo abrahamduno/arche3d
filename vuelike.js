@@ -77,18 +77,24 @@ class jQueryTemplateView {
 				const newKey = e.currentTarget.dataset.args
 				if (!this.data.people[newKey]) return
 
-				this.$container.find(`#person_name`)[0].innerHTML = this.data.people[newKey].name
+				this.$container.find(`#person_name`)[0].innerHTML = this.data.people[newKey].name.toUpperCase()
 				this.$container.find(`#person_job`)[0].innerHTML = this.data.people[newKey].job
 				this.$container.find(`#person_joblength`)[0].innerHTML = this.data.people[newKey].joblength
+				this.$container.find(`#person_img`)[0].innerHTML = `
+					<img style="" class="w-100" src="res/img/${newKey}.jpg"/>
+				`
+				
 
 				const personArgs = Object.keys(this.data.people[newKey].skills)
 				for (var i = 0; i < personArgs.length; i++)
 				{
 					if (!this.$container.find(`#person_${personArgs[i]}`)[0]) return
 					this.$container.find(`#person_${personArgs[i]}`)[0].innerHTML = personArgs[i] == "name" ? this.data.people[newKey].skills[personArgs[i]] : `
-						<div>
-							${personArgs[i]} <br> 
-							<div style="width:${this.data.people[newKey].skills[personArgs[i]]*5}px; height: 10px; background: #94D048;">
+						<div >
+							<span class="tx-sm">${personArgs[i].toUpperCase()}</span>
+							<div class="flex mb-4 mt-1">
+								<div style="width:${(this.data.people[newKey].skills[personArgs[i]]-1)*10}%; height: 10px; background: #94D048;"> </div>
+								<div style="width:${(10-this.data.people[newKey].skills[personArgs[i]])*10}%; height: 10px; background: #ffffff;"> </div>
 							</div>
 						</div>`
 				}

@@ -182,37 +182,6 @@
       <section class="light wide" style="background: #020226;" id="templateViewId">
         <h1 style="opacity: 0.6; text-align: center; letter-spacing: 5px;">Archenautas</h1>
         <div class="flex-md2x-wrap flex-xs2sm-wrap pb-8">
-          <input data-watch="testfield" type="text" style="display:none" />
-          
-          <div class="flex-wrap flex-1" data-for-click="updatePerson" data-items="people">
-            <h6 data-args="0" class="clickable pa-3 opacity-hover-75">
-              name
-            </h6>
-        </div>
-        <div class="flex-column flex-1">
-          <div data-ref="selectedperson" class="flex-wrap flex-justify-between">
-            <h1 id="person_name" class="w-100">?</h1>
-            <div class="flex-column flex-align-start">
-              <div class="flex-start">
-                <div style="color: #94D048">CARGO</div>
-                <h3 class="mt-0" id="person_job"></h3>
-              </div>
-              <div class="flex-start">
-                <div style="color: #94D048">ANTIGUEDAD</div>
-                <div id="person_joblength"></div>
-              </div>
-            </div>
-            <div class="flex-wrap ">
-              <div id="person_Creatividad" class="w-50"></div>
-              <div id="person_Diseno" class="w-50"></div>
-              <div id="person_Liderazgo" class="w-50"></div>
-              <div id="person_Curiosidad" class="w-50"></div>
-            </div>
-          </div>
-        </div>
-          
-        </div>
-          <div class="flex-md2x-wrap flex-xs2sm-wrap pb-8">
 
 
           <div class="flex-column flex-1 ">
@@ -230,6 +199,43 @@
             </p> -->
           </div>
         </div>
+        <div class="flex-md2x-wrap flex-xs2sm-wrap pb-8">
+          <input data-watch="testfield" type="text" style="display:none" />
+          
+          <div class="flex-wrap flex-1" data-for-click="updatePerson" data-items="people">
+            <h6 data-args="0" class="clickable pa-3 opacity-hover-75">
+              name
+            </h6>
+        </div>
+        <div class="flex-column flex-1">
+          <div data-ref="selectedperson" style="line-height: 1" class="personbox ">
+            <div id="person_img"></div>
+            <div class="pa-4">
+              <div style="border-left: 1px solid #94D048; font-size: 1.8em;" id="person_name"  class=" pl-2 w-100 ">?</div>
+            </div>
+            <div class="flex-wrap flex-justify-between pa-6 tx-lg" >
+              <div class="flex-column flex-align-start flex-1">
+                <div class="flex-start ">
+                  <div style="color: #94D048">CARGO</div>
+                  <div class="mt-0  " id="person_job"></div>
+                </div>
+                <div class="flex-start mt-3">
+                  <div style="color: #94D048">ANTIGUEDAD</div>
+                  <div id="person_joblength"></div>
+                </div>
+              </div>
+              <div class="flex-wrap tx-xs flex-1">
+                <div id="person_Creatividad" class="tx-ls-2 w-50"></div>
+                <div id="person_Diseno" class="tx-ls-2 w-50"></div>
+                <div id="person_Liderazgo" class="tx-ls-2 w-50"></div>
+                <div id="person_Curiosidad" class="tx-ls-2 w-50"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+          
+        </div>
+        
       </section>
 
       <section class="light wide pa-0" style="background: #020226;">
