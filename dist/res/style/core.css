@@ -30,7 +30,12 @@
 * {
   scroll-behavior: smooth;
 }
+.personbox {
+  background: #000014;
+  /* clip-path: polygon(20% 0, 100% 0, 100% 100%, 0 100%, 0 15%); */
+  box-shadow: 0 0 0 1px #94D048;
 
+}
 
 #mainMenuContent {
   /* display: none; */
@@ -159,6 +164,9 @@ canvas {
     line-height: 1.5;
     margin-bottom: var(--spacing);
   }
+  section.wide {
+    grid-column: 1 / 13;
+  }
   .left {
     grid-column: 6 / 12;
   }
@@ -167,10 +175,10 @@ canvas {
   @media screen and (max-width: 768px)
   {
     section {
-      grid-column: 2 / 12;
+      grid-column: 1 / 13;
     }
     .left {
-      grid-column: 2 / 12;
+      grid-column: 1 / 13;
     }
     .right {
       grid-column: 1 / 13;

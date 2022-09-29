@@ -9,40 +9,146 @@ class jQueryTemplateView {
 		this.data = Object.assign({
 			people: [
 				{
+					imgsrc: "LUIS.jpg",
+					name: "Luis Salcedo",
+					job: "Community Manager Senior",
+					joblength: "3 años",
+					skils: {"Divertido":9, "proactivo":9, "pícaro":9, "responsable":9,}
+				},
+				
+				{
+					imgsrc: "GIL.jpg",
+					name: "Gilian Oronoz",
+					job: "Community Manager Senior",
+					joblength: "3 años",
+					skils: {"Paciente":9, "versátil":9, "carismática":9, "simpática":9,}
+				},
+				
+				{
+					imgsrc: "ANDRES.jpg",
+					name: "Andrés Marín",
+					job: "Community Manager",
+					joblength: "1 años y 11 meses",
+					skils: {"Crítico":9, "comunicativo":9, "intuitivo":9, "directo":9,}
+				},
+				
+				{
+					imgsrc: "TAVITO.jpg",
+					name: "Gustavo Nieto",
+					job: "Community Manager Junior",
+					joblength: "1 año y 6 meses.",
+					skils: {"Proactivo":9, "estratégico":9, "empático":9, "organizado.":9,}
+				},
+				
+				{
+					imgsrc: "GUZ.jpg",
+					name: "Guzbenia Marcano",
+					job: "Community Manager",
+					joblength: "3 años",
+					skils: {"Colaboradora":9, "dedicada":9, "creativa":9, "ocurrente":9,}
+				},
+				
+				{
+					imgsrc: "GABY.jpg",
+					name: "Gabriela Rojas",
+					job: "Community Manager",
+					joblength: "1 año y 6 meses",
+					skils: {"Empática":9, "responsable":9, "dinámica":9, "versátil":9,}
+				},
+				
+				{
+					imgsrc: "TAVO.jpg",
+					name: "Gustavo Fuentes",
+					job: "Community Senior",
+					joblength: "1 año y seis meses",
+					skils: {"Competitivo":9, "persuasivo":9, "realista":9, "sarcástico.":9,}
+				},
+				
+				{
+					imgsrc: "ISMA.jpg",
+					name: "Ismarvin Romero",
+					job: "Ejecutiva de Cuentas",
+					joblength: "5 años",
+					skils: {"organizada":9, "comprensiva":9, "responsable":9, "honesta":9,}
+				},
+				
+				{
+					imgsrc: "GABY 2.jpg",
+					name: "Gaby Foglia",
+					job: "Curadora de contenidos",
+					joblength: "3 años",
+					skils: {"Analítica":9, "estricta":9, "ordenada":9, "regañona":9,}
+				},
+				{
+					imgsrc: "ORI.jpg",
+					name: "Oriana Azócar",
+					job: "Community Manager",
+					joblength: "10 años",
+					skils: {"Empática":9, "creativa":9, "resolutiva":9, "cuchi":9,}
+				},
+				
+				{
+					imgsrc: "JESUS.jpg",
+					name: "Jesús Machado",
+					job: "Diseñador Senior",
+					joblength: "3 años",
+					skils: {"Elocuente":9, "extrovertido":9, "ocurrente":9, "mil voces":9,}
+				},
+				
+				{
+					imgsrc: "MAFER.jpg",
+					name: "María Fernanda Anés",
+					job: "Diseñadora junior",
+					joblength: "5 meses",
+					skils: {"Resolutiva":9, "proactiva":9, "curiosa":9, "cuchi":9,}
+				},
+				
+				{
+					imgsrc: "JESUS.jpg",
+					name: "Jesús Sierra",
+					job: "Diseñador junior",
+					joblength: "5 meses",
+					skils: {"Comunicativo":9, "observador":9, "cooperativo":9, "introvertido":9,}
+				},
+				
+				{
+					imgsrc: "SAMIL.jpg",
+					name: "Samil Rivera",
+					job: "Diseñador Junior",
+					joblength: "2 años",
+					skils: {"Innovador":9, "Comunicativo":9, "pasional":9, "terco":9,}
+				},
+				
+				{
+					imgsrc: "FERNANDO.jpg",
+					name: "Fernando Fernández",
+					job: "diseñador Senior",
+					joblength: "2 años",
+					skils: {"Innovador":9, "creativo":9, "perfeccionista":9, "resolutivo":9,}
+				},
+				
+				{
+					imgsrc: "KARIM.jpg",
+					name: "Karim Perdomo",
+					job: "Diseñadora",
+					joblength: "10 meses",
+					skils: {"vanguardista":9, "comprensiva":9, "ingeniosa":9, "elástica":9,}
+				},
+				
+				{
+					imgsrc: "DEY.jpg",
 					name: "Deisy Esteban",
-					job: "Directora <br/> Creativa",
-					joblength: "5 Años",
-					// stars: 4,
-					skills: {
-						Creatividad: 9,
-						Curiosidad: 6,
-						Diseno: 9,
-						Liderazgo: 3,
-					},
+					job: "Directora creativa",
+					joblength: "5 años",
+					skils: {"Rigurosa":9, "profesional":9, "talentosa":9, "Dory":9,}
 				},
+				
 				{
-					name: "Pedro Perez",
-					job: "Curador de <br/> Contenido",
-					joblength: "2 Años",
-					// stars: 5,
-					skills: {
-						Creatividad: 7,
-						Curiosidad: 8,
-						Diseno: 8,
-						Liderazgo: 7,
-					},
-				},
-				{
-					name: "Ronnie McLovin",
-					job: "Diseñador <br/> Grafico",
-					joblength: "1 Años",
-					// stars: 3,
-					skills: {
-						Creatividad: 7,
-						Curiosidad: 6,
-						Diseno: 2,
-						Liderazgo: 6,
-					},
+					imgsrc: "WILLIAM.jpg",
+					name: "William Duque",
+					job: "Coordinador audiovisual",
+					joblength: "5 años",
+					skils: {"autodidacta":9, "metódico":9, "cuidadoso":9, "comiquia’o":9,}
 				},
 			],
 		}, data);
@@ -81,7 +187,7 @@ class jQueryTemplateView {
 				this.$container.find(`#person_job`)[0].innerHTML = this.data.people[newKey].job
 				this.$container.find(`#person_joblength`)[0].innerHTML = this.data.people[newKey].joblength
 				this.$container.find(`#person_img`)[0].innerHTML = `
-					<img style="" class="w-100" src="res/img/${newKey}.jpg"/>
+					<img style="" class="w-100" src="res/img/creativas/${this.data.people[newKey].imgsrc}"/>
 				`
 				
 
@@ -126,9 +232,7 @@ class jQueryTemplateView {
 				newClone.innerHTML = theList[j].name
 				newClone.innerHTML = `
 					<div class="flex-column">
-						${theList[j].name}
-						<br/>
-						<img style="width: 50px; height: 50px;" src="res/img/${j}.jpg"/>
+						<img style="width: 100px;" src="res/img/serias/${theList[j].imgsrc}"/>
 					</div>
 				`
 				newClone.dataset.args = j

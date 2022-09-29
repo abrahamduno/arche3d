@@ -1,9 +1,42 @@
 /* ------------------------------------------ DISPLAY ------------------------------------------ */
-.hidden { visibility: hidden; }
-.none { display: none; }
-.block { display: block; }
 .pos-relative { position: relative; }
 .pos-absolute { position: absolute; }
+.pos-fixed { position: fixed; }
+.top-0 { top: 0; }
+.top-1 { top: 5px; }
+.top-2 { top: 10px; }
+.top-3 { top: 15px; }
+.top-4 { top: 20px; }
+.top-5 { top: 25px; }
+.left-0 { left: 0; }
+.left-1 { left: 5px; }
+.left-2 { left: 10px; }
+.left-3 { left: 15px; }
+.left-4 { left: 20px; }
+.left-5 { left: 25px; }
+.right-0 { right: 0; }
+.right-1 { right: 5px; }
+.right-2 { right: 10px; }
+.right-3 { right: 15px; }
+.right-4 { right: 20px; }
+.right-5 { right: 25px; }
+.bottom-0 { bottom: 0; }
+.bottom-1 { bottom: 5px; }
+.bottom-2 { bottom: 10px; }
+.bottom-3 { bottom: 15px; }
+.bottom-4 { bottom: 20px; }
+.bottom-5 { bottom: 25px; }
+
+.z-1 { z-index: 1; }
+.z-2 { z-index: 2; }
+.z-3 { z-index: 3; }
+.z-5 { z-index: 5; }
+.z-10 { z-index: 10; }
+.z-50 { z-index: 50; }
+.z-100 { z-index: 100; }
+.z-999 { z-index: 999; }
+.z--999 { z-index: -999; }
+
 
 .nopointer {pointer-events: none; }
 .noclick {pointer-events: none; }
