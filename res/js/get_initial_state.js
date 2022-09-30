@@ -10,7 +10,7 @@ export function getInitialState() {
         file: "sat.obj",
         path: BASE_ASSET_URL + "/models/",
         wireframe: true,
-        pos: [85, 35, 45],
+        pos: [50, 35, 45],
         rot: [0, 0.7, 1],
         scale: [3, 3, 3],
       },
@@ -18,7 +18,7 @@ export function getInitialState() {
         file: "rocket.obj",
         path: BASE_ASSET_URL + "/models/",
         wiremat: true,
-        pos: [1280, 92, 35],
+        pos: [1300, 122, 5],
         rot: [0.5, 1.5, 0],
         scale: [18, 18, 18],
       },
@@ -26,7 +26,7 @@ export function getInitialState() {
     sceneBreakpoints: {
       default: [],
       mobile: [1900, 4500, 8500, 9000, 16500],
-      desktop: [2400, 3500, 7500, 11000, 14000],
+      desktop: [2400, 4500, 7300, 8600, 14000],
     },
     sceneVariables: {
       camera: {

@@ -11,9 +11,15 @@ class jQueryTemplateView {
 				{
 					imgsrc: "LUIS.jpg",
 					name: "Luis Salcedo",
-					job: "Community Manager Senior",
+					job: "Community Senior - good",
 					joblength: "3 años",
-					skils: {"Divertido":9, "proactivo":9, "pícaro":9, "responsable":9,}
+					skills: {
+						Creatividad:3,
+						Diseno:3,
+						Liderazgo:3,
+						Curiosidad:3,
+						"Divertido":9, "proactivo":9, "pícaro":9, "responsable":9,
+					}
 				},
 				
 				{
@@ -21,7 +27,13 @@ class jQueryTemplateView {
 					name: "Gilian Oronoz",
 					job: "Community Manager Senior",
 					joblength: "3 años",
-					skils: {"Paciente":9, "versátil":9, "carismática":9, "simpática":9,}
+					skills: {
+						Creatividad:3,
+						Diseno:3,
+						Liderazgo:3,
+						Curiosidad:3,
+						"Paciente":9, "versátil":9, "carismática":9, "simpática":9,
+					}
 				},
 				
 				{
@@ -29,7 +41,13 @@ class jQueryTemplateView {
 					name: "Andrés Marín",
 					job: "Community Manager",
 					joblength: "1 años y 11 meses",
-					skils: {"Crítico":9, "comunicativo":9, "intuitivo":9, "directo":9,}
+					skills: {
+						Creatividad:3,
+						Diseno:3,
+						Liderazgo:3,
+						Curiosidad:3,
+						"Crítico":9, "comunicativo":9, "intuitivo":9, "directo":9,
+					}
 				},
 				
 				{
@@ -37,7 +55,13 @@ class jQueryTemplateView {
 					name: "Gustavo Nieto",
 					job: "Community Manager Junior",
 					joblength: "1 año y 6 meses.",
-					skils: {"Proactivo":9, "estratégico":9, "empático":9, "organizado.":9,}
+					skills: {
+						Creatividad:3,
+						Diseno:3,
+						Liderazgo:3,
+						Curiosidad:3,
+						"Proactivo":9, "estratégico":9, "empático":9, "organizado.":9,
+					}
 				},
 				
 				{
@@ -45,7 +69,13 @@ class jQueryTemplateView {
 					name: "Guzbenia Marcano",
 					job: "Community Manager",
 					joblength: "3 años",
-					skils: {"Colaboradora":9, "dedicada":9, "creativa":9, "ocurrente":9,}
+					skills: {
+						Creatividad:3,
+						Diseno:3,
+						Liderazgo:3,
+						Curiosidad:3,
+						"Colaboradora":9, "dedicada":9, "creativa":9, "ocurrente":9,
+					}
 				},
 				
 				{
@@ -53,7 +83,13 @@ class jQueryTemplateView {
 					name: "Gabriela Rojas",
 					job: "Community Manager",
 					joblength: "1 año y 6 meses",
-					skils: {"Empática":9, "responsable":9, "dinámica":9, "versátil":9,}
+					skills: {
+						Creatividad:3,
+						Diseno:3,
+						Liderazgo:3,
+						Curiosidad:3,
+						"Empática":9, "responsable":9, "dinámica":9, "versátil":9,
+					}
 				},
 				
 				{
@@ -61,7 +97,13 @@ class jQueryTemplateView {
 					name: "Gustavo Fuentes",
 					job: "Community Senior",
 					joblength: "1 año y seis meses",
-					skils: {"Competitivo":9, "persuasivo":9, "realista":9, "sarcástico.":9,}
+					skills: {
+						Creatividad:3,
+						Diseno:3,
+						Liderazgo:3,
+						Curiosidad:3,
+						"Competitivo":9, "persuasivo":9, "realista":9, "sarcástico.":9,
+					}
 				},
 				
 				{
@@ -69,7 +111,13 @@ class jQueryTemplateView {
 					name: "Ismarvin Romero",
 					job: "Ejecutiva de Cuentas",
 					joblength: "5 años",
-					skils: {"organizada":9, "comprensiva":9, "responsable":9, "honesta":9,}
+					skills: {
+						Creatividad:3,
+						Diseno:3,
+						Liderazgo:3,
+						Curiosidad:3,
+						"organizada":9, "comprensiva":9, "responsable":9, "honesta":9,
+					}
 				},
 				
 				{
@@ -77,14 +125,26 @@ class jQueryTemplateView {
 					name: "Gaby Foglia",
 					job: "Curadora de contenidos",
 					joblength: "3 años",
-					skils: {"Analítica":9, "estricta":9, "ordenada":9, "regañona":9,}
+					skills: {
+						Creatividad:3,
+						Diseno:3,
+						Liderazgo:3,
+						Curiosidad:3,
+						"Analítica":9, "estricta":9, "ordenada":9, "regañona":9,
+					}
 				},
 				{
 					imgsrc: "ORI.jpg",
 					name: "Oriana Azócar",
 					job: "Community Manager",
 					joblength: "10 años",
-					skils: {"Empática":9, "creativa":9, "resolutiva":9, "cuchi":9,}
+					skills: {
+						Creatividad:3,
+						Diseno:3,
+						Liderazgo:3,
+						Curiosidad:3,
+						"Empática":9, "creativa":9, "resolutiva":9, "cuchi":9,
+					}
 				},
 				
 				{
@@ -92,7 +152,13 @@ class jQueryTemplateView {
 					name: "Jesús Machado",
 					job: "Diseñador Senior",
 					joblength: "3 años",
-					skils: {"Elocuente":9, "extrovertido":9, "ocurrente":9, "mil voces":9,}
+					skills: {
+						Creatividad:3,
+						Diseno:3,
+						Liderazgo:3,
+						Curiosidad:3,
+						"Elocuente":9, "extrovertido":9, "ocurrente":9, "mil voces":9,
+					}
 				},
 				
 				{
@@ -100,7 +166,13 @@ class jQueryTemplateView {
 					name: "María Fernanda Anés",
 					job: "Diseñadora junior",
 					joblength: "5 meses",
-					skils: {"Resolutiva":9, "proactiva":9, "curiosa":9, "cuchi":9,}
+					skills: {
+						Creatividad:3,
+						Diseno:3,
+						Liderazgo:3,
+						Curiosidad:3,
+						"Resolutiva":9, "proactiva":9, "curiosa":9, "cuchi":9,
+					}
 				},
 				
 				{
@@ -108,7 +180,13 @@ class jQueryTemplateView {
 					name: "Jesús Sierra",
 					job: "Diseñador junior",
 					joblength: "5 meses",
-					skils: {"Comunicativo":9, "observador":9, "cooperativo":9, "introvertido":9,}
+					skills: {
+						Creatividad:3,
+						Diseno:3,
+						Liderazgo:3,
+						Curiosidad:3,
+						"Comunicativo":9, "observador":9, "cooperativo":9, "introvertido":9,
+					}
 				},
 				
 				{
@@ -116,7 +194,13 @@ class jQueryTemplateView {
 					name: "Samil Rivera",
 					job: "Diseñador Junior",
 					joblength: "2 años",
-					skils: {"Innovador":9, "Comunicativo":9, "pasional":9, "terco":9,}
+					skills: {
+						Creatividad:3,
+						Diseno:3,
+						Liderazgo:3,
+						Curiosidad:3,
+						"Innovador":9, "Comunicativo":9, "pasional":9, "terco":9,
+					}
 				},
 				
 				{
@@ -124,7 +208,13 @@ class jQueryTemplateView {
 					name: "Fernando Fernández",
 					job: "diseñador Senior",
 					joblength: "2 años",
-					skils: {"Innovador":9, "creativo":9, "perfeccionista":9, "resolutivo":9,}
+					skills: {
+						Creatividad:3,
+						Diseno:3,
+						Liderazgo:3,
+						Curiosidad:3,
+						"Innovador":9, "creativo":9, "perfeccionista":9, "resolutivo":9,
+					}
 				},
 				
 				{
@@ -132,7 +222,13 @@ class jQueryTemplateView {
 					name: "Karim Perdomo",
 					job: "Diseñadora",
 					joblength: "10 meses",
-					skils: {"vanguardista":9, "comprensiva":9, "ingeniosa":9, "elástica":9,}
+					skills: {
+						Creatividad:3,
+						Diseno:3,
+						Liderazgo:3,
+						Curiosidad:3,
+						"vanguardista":9, "comprensiva":9, "ingeniosa":9, "elástica":9,
+					}
 				},
 				
 				{
@@ -140,7 +236,13 @@ class jQueryTemplateView {
 					name: "Deisy Esteban",
 					job: "Directora creativa",
 					joblength: "5 años",
-					skils: {"Rigurosa":9, "profesional":9, "talentosa":9, "Dory":9,}
+					skills: {
+						Creatividad:3,
+						Diseno:3,
+						Liderazgo:3,
+						Curiosidad:3,
+						"Rigurosa":9, "profesional":9, "talentosa":9, "Dory":9,
+					}
 				},
 				
 				{
@@ -148,7 +250,13 @@ class jQueryTemplateView {
 					name: "William Duque",
 					job: "Coordinador audiovisual",
 					joblength: "5 años",
-					skils: {"autodidacta":9, "metódico":9, "cuidadoso":9, "comiquia’o":9,}
+					skills: {
+						Creatividad:3,
+						Diseno:3,
+						Liderazgo:3,
+						Curiosidad:3,
+						"autodidacta":9, "metódico":9, "cuidadoso":9, "comiquia’o":9,
+					}
 				},
 			],
 		}, data);

@@ -30,10 +30,15 @@
 * {
   scroll-behavior: smooth;
 }
+.personbox-wrapper {
+  clip-path: polygon(20% 0, 100% 0, 100% 100%, 0 100%, 0 15%);
+  background: #94D048;
+  padding: 1px;
+}
 .personbox {
   background: #000014;
-  /* clip-path: polygon(20% 0, 100% 0, 100% 100%, 0 100%, 0 15%); */
-  box-shadow: 0 0 0 1px #94D048;
+  clip-path: polygon(20% 0, 100% 0, 100% 100%, 0 100%, 0 15%);
+  /* box-shadow: 0 0 0 2px #94D048; */
 
 }
 
