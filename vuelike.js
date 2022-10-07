@@ -1,9 +1,10 @@
 class jQueryTemplateView {
-	constructor($container, options, data = null)
+	constructor($container, options, scene, data = null)
 	{
 		this.$container = $($container);
 
-		this.options = Object.assign({
+	  this.scene = scene
+	  this.options = Object.assign({
 		}, options);
 
 		this.data = Object.assign({
@@ -388,11 +389,15 @@ class jQueryTemplateView {
 		let self = this;
 
 		const references = this.$container.find("[data-ref]")
+		console.log(references)
 
 		for (var i = 0; i < references.length; i++)
 		{
 			this.refs[references[i].dataset.ref] = references[i]
+			console.log("****************************this.refs****************************")
+			console.log(this.refs)
 		}
+		// console.log(this)
 	}
 
 	initWatchers()
@@ -411,9 +416,4 @@ class jQueryTemplateView {
 	}
 }
 
-$(document).ready(function(){
-
-	let newjQueryTemplateView = new jQueryTemplateView('#templateViewId', {
-	});
-
-});
+export default jQueryTemplateView

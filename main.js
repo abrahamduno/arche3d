@@ -2,6 +2,7 @@ import "./res/style/core.css";
 import "./res/style/css.css";
 import MyScene from "./res/js/myScene.js";
 import ScrollWatcher from "./res/js/scroll.js";
+import VueLike from "./vuelike.js";
 import * as THREE from "three";
 
 import { MTLLoader } from "./res/loaders/MTLLoader.js";
@@ -10,14 +11,6 @@ import { MTLLoader } from "./res/loaders/MTLLoader.js";
 function lerp(min, max, value) {
   return (max - min) * value + min;
 }
-
-const TheScene = new MyScene({DEBUG:true});
-const TheScrollWatcher = new ScrollWatcher(TheScene);
-function scrollUpdater(event) { TheScrollWatcher.update() }
-document.body.onscroll = scrollUpdater
-window.addEventListener('resize', () => {
-  TheScene.OnWindowResize();
-}, false);
 
 function _animate() {
   requestAnimationFrame(_animate);
@@ -45,11 +38,24 @@ function _animate() {
 
   TheScene.renderer.render(TheScene.scene, TheScene.camera);
 }
-TheScrollWatcher.update()
-_animate();
 
-window.addEventListener("load", function (event)
-{
+const TheScene = new MyScene({DEBUG:true});
+
+$(document).ready(() => {
+	const newjQueryTemplateView = new VueLike('#templateViewId', {}, TheScene);
+  const TheScrollWatcher = new ScrollWatcher(TheScene, newjQueryTemplateView);
+  function scrollUpdater(event) { TheScrollWatcher.update() }
+  
+  TheScrollWatcher.update()
+  _animate();
+  
+
+
+  document.body.onscroll = scrollUpdater
+  window.addEventListener('resize', () => {
+    TheScene.OnWindowResize();
+  }, false);
+
   document .getElementById("mainMenuModal").addEventListener("click", function (event) {
     // console.log("asd");
     document.body.classList.toggle("noScroll");
@@ -69,5 +75,4 @@ window.addEventListener("load", function (event)
         .classList.toggle("displayNone");
     });
   });
-}
-);
+});
