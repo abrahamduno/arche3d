@@ -329,7 +329,7 @@ export default class MyScene {
           });
           const textMesh1 = new THREE.Mesh(geometry, textmaterials);
           textMesh1.rotation.x = 0.5;
-          textMesh1.position.set(1200, 67, 55);
+          textMesh1.position.set(1200, 97, 25);
           this.scene.add(textMesh1);
         }
       }

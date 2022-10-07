@@ -19,8 +19,8 @@ class jQueryTemplateView {
 						Diseno:9,
 						Liderazgo:9,
 						Curiosidad:9,
-						"Divertido":9, "proactivo":9, "pícaro":9, "responsable":9,
-					}
+					},
+					person: {"Divertido":9, "proactivo":9, "pícaro":9, "responsable":9,},
 				},
 				
 				{
@@ -34,8 +34,8 @@ class jQueryTemplateView {
 						Diseno:9,
 						Liderazgo:9,
 						Curiosidad:9,
-						"Paciente":9, "versátil":9, "carismática":9, "simpática":9,
-					}
+					},
+					person: {"Paciente":9, "versátil":9, "carismática":9, "simpática":9,},
 				},
 				
 				{
@@ -49,8 +49,8 @@ class jQueryTemplateView {
 						Diseno:9,
 						Liderazgo:9,
 						Curiosidad:9,
-						"Crítico":9, "comunicativo":9, "intuitivo":9, "directo":9,
-					}
+					},
+					person: {"Crítico":9, "comunicativo":9, "intuitivo":9, "directo":9,},
 				},
 				
 				{
@@ -64,8 +64,8 @@ class jQueryTemplateView {
 						Diseno:9,
 						Liderazgo:9,
 						Curiosidad:9,
-						"Proactivo":9, "estratégico":9, "empático":9, "organizado.":9,
-					}
+					},
+					person: {"Proactivo":9, "estratégico":9, "empático":9, "organizado.":9,},
 				},
 				
 				{
@@ -79,8 +79,8 @@ class jQueryTemplateView {
 						Diseno:9,
 						Liderazgo:9,
 						Curiosidad:9,
-						"Colaboradora":9, "dedicada":9, "creativa":9, "ocurrente":9,
-					}
+					},
+					person: {"Colaboradora":9, "dedicada":9, "creativa":9, "ocurrente":9,},
 				},
 				
 				{
@@ -94,8 +94,8 @@ class jQueryTemplateView {
 						Diseno:9,
 						Liderazgo:9,
 						Curiosidad:9,
-						"Empática":9, "responsable":9, "dinámica":9, "versátil":9,
-					}
+					},
+					person: {"Empática":9, "responsable":9, "dinámica":9, "versátil":9,},
 				},
 				
 				{
@@ -109,8 +109,8 @@ class jQueryTemplateView {
 						Diseno:9,
 						Liderazgo:9,
 						Curiosidad:9,
-						"Competitivo":9, "persuasivo":9, "realista":9, "sarcástico.":9,
-					}
+					},
+					person: {"Competitivo":9, "persuasivo":9, "realista":9, "sarcástico.":9,},
 				},
 				
 				{
@@ -124,8 +124,8 @@ class jQueryTemplateView {
 						Diseno:9,
 						Liderazgo:9,
 						Curiosidad:9,
-						"organizada":9, "comprensiva":9, "responsable":9, "honesta":9,
-					}
+					},
+					person: {"organizada":9, "comprensiva":9, "responsable":9, "honesta":9,},
 				},
 				
 				{
@@ -139,8 +139,8 @@ class jQueryTemplateView {
 						Diseno:9,
 						Liderazgo:9,
 						Curiosidad:9,
-						"Analítica":9, "estricta":9, "ordenada":9, "regañona":9,
-					}
+					},
+					person: {"Analítica":9, "estricta":9, "ordenada":9, "regañona":9,},
 				},
 				{
 					imgsrc: "ORIANA",
@@ -153,8 +153,8 @@ class jQueryTemplateView {
 						Diseno:9,
 						Liderazgo:9,
 						Curiosidad:9,
-						"Empática":9, "creativa":9, "resolutiva":9, "cuchi":9,
-					}
+					},
+					person: {"Empática":9, "creativa":9, "resolutiva":9, "cuchi":9,},
 				},
 				
 				{
@@ -168,8 +168,8 @@ class jQueryTemplateView {
 						Diseno:9,
 						Liderazgo:9,
 						Curiosidad:9,
-						"Elocuente":9, "extrovertido":9, "ocurrente":9, "mil voces":9,
-					}
+					},
+					person: {"Elocuente":9, "extrovertido":9, "ocurrente":9, "mil voces":9,},
 				},
 				
 				{
@@ -183,8 +183,8 @@ class jQueryTemplateView {
 						Diseno:9,
 						Liderazgo:9,
 						Curiosidad:9,
-						"Resolutiva":9, "proactiva":9, "curiosa":9, "cuchi":9,
-					}
+					},
+					person: {"Resolutiva":9, "proactiva":9, "curiosa":9, "cuchi":9,},
 				},
 				
 				{
@@ -198,8 +198,8 @@ class jQueryTemplateView {
 						Diseno:9,
 						Liderazgo:9,
 						Curiosidad:9,
-						"Comunicativo":9, "observador":9, "cooperativo":9, "introvertido":9,
-					}
+					},
+					person: {"Comunicativo":9, "observador":9, "cooperativo":9, "introvertido":9,},
 				},
 				
 				{
@@ -213,8 +213,8 @@ class jQueryTemplateView {
 						Diseno:9,
 						Liderazgo:9,
 						Curiosidad:9,
-						"Innovador":9, "Comunicativo":9, "pasional":9, "terco":9,
-					}
+					},
+					person: {"Innovador":9, "Comunicativo":9, "pasional":9, "terco":9,},
 				},
 				
 				{
@@ -228,8 +228,8 @@ class jQueryTemplateView {
 						Diseno:9,
 						Liderazgo:9,
 						Curiosidad:9,
-						"Innovador":9, "creativo":9, "perfeccionista":9, "resolutivo":9,
-					}
+					},
+					person: {"Innovador":9, "creativo":9, "perfeccionista":9, "resolutivo":9,},
 				},
 				
 				{
@@ -243,8 +243,8 @@ class jQueryTemplateView {
 						Diseno:9,
 						Liderazgo:9,
 						Curiosidad:9,
-						"vanguardista":9, "comprensiva":9, "ingeniosa":9, "elástica":9,
-					}
+					},
+					person: {"vanguardista":9, "comprensiva":9, "ingeniosa":9, "elástica":9,},
 				},
 				
 				{
@@ -258,8 +258,8 @@ class jQueryTemplateView {
 						Diseno:9,
 						Liderazgo:9,
 						Curiosidad:9,
-						"Rigurosa":9, "profesional":9, "talentosa":9, "Dory":9,
-					}
+					},
+					person: {"Rigurosa":9, "profesional":9, "talentosa":9, "Dory":9,},
 				},
 				
 				{
@@ -273,8 +273,8 @@ class jQueryTemplateView {
 						Diseno:9,
 						Liderazgo:9,
 						Curiosidad:9,
-						"autodidacta":9, "metódico":9, "cuidadoso":9, "comiquia’o":9,
-					}
+					},
+					person: {"autodidacta":9, "metódico":9, "cuidadoso":9, "comiquia’o":9,},
 				},
 			],
 		}, data);
