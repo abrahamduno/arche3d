@@ -314,7 +314,7 @@ class jQueryTemplateView {
 				this.$container.find(`#person_job`)[0].innerHTML = this.data.people[newKey].job
 				this.$container.find(`#person_joblength`)[0].innerHTML = this.data.people[newKey].joblength
 				this.$container.find(`#person_img`)[0].innerHTML = `
-					<img style="" class="w-100" src="res/img/${this.data.people[newKey].folder}/${this.data.people[newKey].imgsrc}-02.png"/>
+					<img style="display: block" class=" w-100" src="res/img/${this.data.people[newKey].folder}/${this.data.people[newKey].imgsrc}-02.jpg"/>
 				`
 				
 
