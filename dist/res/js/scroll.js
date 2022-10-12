@@ -1,8 +1,9 @@
 export default class ScrollWatcher {
-  constructor(_scene)
+  constructor(_scene, _vuelike)
   {
     // console.log("constructor scene",_scene)
     this.scene = _scene
+    this.vuelike = _vuelike
     // console.log("constructor scene",this.scene)
   }
   update() {
@@ -12,6 +13,18 @@ export default class ScrollWatcher {
     // console.log("update scene",this.scene)
     // if (!this.scene) this.scene = this.scene
     const t = document.body.getBoundingClientRect().top;
+
+    // ceoimg
+    // console.log(t, this.vuelike.refs)
+
+    if (this.vuelike.refs.ceoimg)
+    {
+      // console.log("t")
+      let asd = parseInt(-t*.085)
+      // console.log(asd, this.vuelike.refs.ceoimg.style.transform)
+      this.vuelike.refs.ceoimg.style.transform = `translateX(${asd-1200}px)`
+    }
+
     if (this.scene.DEBUG) { console.log(t) }
 
     if (t < -this.scene.sceneBreakpoints.default[4]) {

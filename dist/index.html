@@ -10,15 +10,15 @@
     <!-- <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script> -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer">
-  <script type="module" crossorigin src="/assets/index.df3538b8.js"></script>
+  <script type="module" crossorigin src="/assets/index.6d9c439a.js"></script>
   <link rel="modulepreload" href="/assets/vendor.ebcebb16.js">
-  <link rel="stylesheet" href="/assets/index.c181dce2.css">
+  <link rel="stylesheet" href="/assets/index.7ed1d248.css">
 </head>
   <body>
 
     <canvas id="bg"></canvas>   
 
-    <main>
+    <main id="templateViewId">
       <div id="home"></div>
       <div id="mainModal" class="flex-wrap flex-align-start flex-justify-between w-100"
             style="position: fixed;z-index: 999; background: #000000cc;"
@@ -202,7 +202,7 @@
 
 
       <div class="hidden block grid-column-12" style="height: 1100px;"> . </div>
-      <section class="light wide" style="background: #020226;" id="templateViewId">
+      <section class="light wide" style="background: #020226;" >
         <!-- <h1 style="opacity: 0.6; text-align: center; letter-spacing: 5px;">Archenautas</h1> -->
           <!-- <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
@@ -228,9 +228,9 @@
               name
             </div>
         </div>
-        <div class="flex-column flex-1 " >
+        <div class="flex-column flex-1 personbox-wrapper" >
           <div data-ref="selectedperson" style="line-height: 1" class="personbox pos-relative">
-            <div id="person_img" style="min-height: 400px;"></div>
+            <div id="person_img" style="min-height: 200px;"></div>
             <div class="personinfo">
               <div class="flex-justify-start"  style="background: transparent; transform: translateY(-97%) translateX(6px)">
                 <div style="background: #000014; clip-path: polygon(90% 0%, 100% 100%, 0 100%, 0 0);"  class=" pa-4 px-6 tx-lg tx-ls-3 ">ARCHENAUTA</div>
@@ -285,7 +285,7 @@
               Hoy, dirijo las operaciones de Universo Arché, desarrollando la comunicación digital de nuestros clientes, asesorándolos y acompañándolos en cada una de las etapas, hacia el posicionamiento de sus marcas. 
             </p>
           </div>
-          <img src="/assets/ceo.89bab657.png" alt="" style="max-width: 100%; width: 500px" class="pos-absolute bottom-0 show-lg_x">
+          <img data-ref="ceoimg" src="/assets/ceo.89bab657.png" alt="" style="max-width: 100%; width: 500px" class="pos-absolute bottom-0 show-lg_x">
           <div style="width: 500px" class="flex-column flex-1 pos-relative block">
             <!-- <p>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
