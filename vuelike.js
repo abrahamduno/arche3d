@@ -324,6 +324,14 @@ class jQueryTemplateView {
 
 				this.$container.find(`#person_name`)[0].innerHTML = this.data.people[newKey].name.toUpperCase()
 				this.$container.find(`#person_job`)[0].innerHTML = this.data.people[newKey].job
+
+				// if (this.data.people[newKey].folder == "JUNIORS")
+				// {
+					this.$container.find(`#person_group`)[0].innerHTML = `
+						<img style="display: block; width: 200px" class=" " src="res/img/${this.data.people[newKey].folder}/stars.png"/>
+					`
+				// }
+
 				// this.$container.find(`#person_joblength`)[0].innerHTML = this.data.people[newKey].joblength
 				// this.$container.find(`#person_joblength`)[0].innerHTML = this.data.people[newKey].unix*1000
 				// this.$container.find(`#person_joblength`)[0].innerHTML = this.calculateAge(new Date(this.data.people[newKey].unix*1000)) 
