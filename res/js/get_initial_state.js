@@ -26,7 +26,7 @@ export function getInitialState() {
     sceneBreakpoints: {
       default: [],
       mobile: [1900, 4500, 8500, 9000, 16500],
-      desktop: [2400, 4500, 7300, 8600, 14000],
+      desktop: [2400, 4500, 8000, 8600, 14400],
     },
     sceneVariables: {
       camera: {

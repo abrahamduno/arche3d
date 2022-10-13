@@ -20,7 +20,7 @@ export default class ScrollWatcher {
     if (this.vuelike.refs.ceoimg)
     {
       // console.log("t")
-      let asd = parseInt(-t*.088)
+      let asd = parseInt(-t*.086)
       // console.log(asd, this.vuelike.refs.ceoimg.style.transform)
       this.vuelike.refs.ceoimg.style.transform = `translateX(${asd-1200}px)`
     }
