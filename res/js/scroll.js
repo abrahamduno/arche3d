@@ -30,8 +30,12 @@ export default class ScrollWatcher {
     if (t < -this.scene.sceneBreakpoints.default[4]) {
       this.scene.myPlanet.position.set(...this.scene.Objects.thePlanet.pos)
       this.scene.myRing.position.set(...this.scene.Objects.thePlanet.pos)
+      if (this.scene.somosText) this.scene.somosText.position.set(...this.scene.Objects.somosText.pos)
+      if (this.scene.universoText) this.scene.universoText.position.set(...this.scene.Objects.universoText.pos)
       this.scene.myPlanet.position.setY(5000)
       this.scene.myRing.position.setY(5000)
+      if (this.scene.somosText) this.scene.somosText.position.setY(5000)
+      if (this.scene.universoText) this.scene.universoText.position.setY(5000)
       // this.scene.camera.rotation.set(...this.scene.Objects.thePlanet.rot)
 
       // this.scene.camera.position.z = -this.scene.Objects.thePlanet.pos[2] + 45;
@@ -39,6 +43,8 @@ export default class ScrollWatcher {
     } else {
       this.scene.myPlanet.position.set(...this.scene.Objects.thePlanet.pos)
       this.scene.myRing.position.set(...this.scene.Objects.thePlanet.pos)
+      if (this.scene.somosText) this.scene.somosText.position.set(...this.scene.Objects.somosText.pos)
+      if (this.scene.universoText) this.scene.universoText.position.set(...this.scene.Objects.universoText.pos)
       // this.scene.camera.position.z = this.scene.Objects.thePlanet.pos[2] + t * -0.01;
     }
 

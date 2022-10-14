@@ -295,7 +295,7 @@ export default class MyScene {
             height: 1,
           });
           this.somosText = new THREE.Mesh(geometry, textmaterials);
-          this.somosText.position.set(-4, 1.5, 10);
+          this.somosText.position.set(...this.Objects.somosText.pos);
           this.scene.add(this.somosText);
         }
         {
@@ -305,7 +305,7 @@ export default class MyScene {
             height: 1,
           });
           this.universoText = new THREE.Mesh(geometry, textmaterials);
-          this.universoText.position.set(-16, -0.7, 9);
+          this.universoText.position.set(...this.Objects.universoText.pos);
           this.scene.add(this.universoText);
         }
         {

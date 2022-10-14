@@ -30,11 +30,11 @@ export function getInitialState() {
       },
       somosText: {
         path: false,
-        // pos: [-4, 1.5, 10],
+        pos: [-4, 1.5, 10],
       },
       universoText: {
         path: false,
-        // pos: [-16, -0.7, 9],
+        pos: [-16, -0.7, 9],
       },
     },
     sceneBreakpoints: {
