@@ -39,7 +39,7 @@ function _animate() {
   TheScene.renderer.render(TheScene.scene, TheScene.camera);
 }
 
-const TheScene = new MyScene({DEBUG:true});
+const TheScene = new MyScene({DEBUG:false});
 
 $(document).ready(() => {
 	const newjQueryTemplateView = new VueLike('#templateViewId', {}, TheScene);

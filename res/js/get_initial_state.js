@@ -22,6 +22,11 @@ export function getInitialState() {
         rot: [0.5, 1.5, 0],
         scale: [18, 18, 18],
       },
+      thePlanet: {
+        pos: [-200, 120, -300],
+        rot: [0, 0, 0],
+        SphereGeometry: [32, 48, 48],
+      },
     },
     sceneBreakpoints: {
       default: [],

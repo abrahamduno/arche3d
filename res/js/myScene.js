@@ -118,6 +118,7 @@ export default class MyScene {
   loadSkeletonObjects() {
     for (const property in this.Objects) {
       // console.log(`${property}: ${object[property]}`);
+      if (!this.Objects[property].path) continue
       new OBJLoader().setPath(this.Objects[property].path).load(
         this.Objects[property].file,
         (object) => {
@@ -213,14 +214,10 @@ export default class MyScene {
   }
   loadSpaceObjects() {
     // ## planet ##
-    let thePlanet = {
-      pos: [-200, 120, -300],
-      rot: [0, 0, 0],
-      sphere: [32, 48, 48],
-    };
+    let thePlanet = {...this.Objects.thePlanet}
     const planetTexture = new THREE.TextureLoader().load("res/img/DEGRADE-PLANETA.jpg");
     this.myPlanet = new THREE.Mesh(
-      new THREE.SphereGeometry(...thePlanet.sphere),
+      new THREE.SphereGeometry(...thePlanet.SphereGeometry),
       new THREE.MeshBasicMaterial({ map: planetTexture })
     );
     this.myPlanet.position.set(...thePlanet.pos);
@@ -243,7 +240,8 @@ export default class MyScene {
     //   new THREE.MeshBasicMaterial({ map: ringTexture })
     // );
 
-    let addring = newring();
+    let theRing = {...this.Objects.thePlanet}
+    let addring = newring(theRing);
     this.myRing = addring;
 
     // this.myRing.position.set(...theRing.pos);

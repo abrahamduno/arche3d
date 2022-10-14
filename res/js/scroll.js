@@ -28,6 +28,21 @@ export default class ScrollWatcher {
     if (this.scene.DEBUG) { console.log(t) }
 
     if (t < -this.scene.sceneBreakpoints.default[4]) {
+      this.scene.myPlanet.position.set(...this.scene.Objects.thePlanet.pos)
+      this.scene.myRing.position.set(...this.scene.Objects.thePlanet.pos)
+      this.scene.myPlanet.position.setY(5000)
+      this.scene.myRing.position.setY(5000)
+      // this.scene.camera.rotation.set(...this.scene.Objects.thePlanet.rot)
+
+      // this.scene.camera.position.z = -this.scene.Objects.thePlanet.pos[2] + 45;
+      // this.scene.camera.position.y = this.scene.Objects.thePlanet.pos[1] + 1;
+    } else {
+      this.scene.myPlanet.position.set(...this.scene.Objects.thePlanet.pos)
+      this.scene.myRing.position.set(...this.scene.Objects.thePlanet.pos)
+      // this.scene.camera.position.z = this.scene.Objects.thePlanet.pos[2] + t * -0.01;
+    }
+
+    if (t < -this.scene.sceneBreakpoints.default[4]) {
       this.scene.camera.rotation.set(...this.scene.sceneVariables.camera.rot)
 
       this.scene.camera.position.z = -this.scene.sceneVariables.camera.pos[2] + 45;
