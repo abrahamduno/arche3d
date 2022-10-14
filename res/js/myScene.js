@@ -214,6 +214,7 @@ export default class MyScene {
   }
   loadSpaceObjects() {
     // ## planet ##
+    let secondPlanet = {...this.Objects.secondPlanet}
     let thePlanet = {...this.Objects.thePlanet}
     const planetTexture = new THREE.TextureLoader().load("res/img/DEGRADE-PLANETA.jpg");
     this.myPlanet = new THREE.Mesh(
@@ -223,6 +224,24 @@ export default class MyScene {
     this.myPlanet.position.set(...thePlanet.pos);
     this.myPlanet.rotation.set(...thePlanet.rot);
     this.scene.add(this.myPlanet);
+
+    this.secondPlanet = new THREE.Mesh(
+      new THREE.SphereGeometry(...secondPlanet.SphereGeometry),
+      new THREE.MeshBasicMaterial({ color: 0xffffff, wireframe: true })
+    );
+    this.secondPlanetFill = new THREE.Mesh(
+      new THREE.SphereGeometry(...secondPlanet.SphereGeometry),
+      new THREE.MeshBasicMaterial({
+        color: 0xFFE595,
+        opacity: 0.3,
+        transparent: true,
+      })
+    
+    );
+    this.secondPlanet.add(this.secondPlanetFill)
+    this.secondPlanet.position.set(...secondPlanet.pos);
+    this.secondPlanet.rotation.set(...secondPlanet.rot);
+    this.scene.add(this.secondPlanet);
     // ## end planet ##
 
     // ## ring ##
