@@ -294,9 +294,9 @@ export default class MyScene {
             size: 1,
             height: 1,
           });
-          const textMesh1 = new THREE.Mesh(geometry, textmaterials);
-          textMesh1.position.set(-4, 1.5, 10);
-          this.scene.add(textMesh1);
+          this.somosText = new THREE.Mesh(geometry, textmaterials);
+          this.somosText.position.set(-4, 1.5, 10);
+          this.scene.add(this.somosText);
         }
         {
           const geometry = new THREE.TextGeometry("UNIVERSO CREATIVO", {
@@ -304,9 +304,9 @@ export default class MyScene {
             size: 2,
             height: 1,
           });
-          const textMesh1 = new THREE.Mesh(geometry, textmaterials);
-          textMesh1.position.set(-16, -0.7, 9);
-          this.scene.add(textMesh1);
+          this.universoText = new THREE.Mesh(geometry, textmaterials);
+          this.universoText.position.set(-16, -0.7, 9);
+          this.scene.add(this.universoText);
         }
         {
           const geometry = new THREE.TextGeometry("¿Qué hacemos por ti?", {

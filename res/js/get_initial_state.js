@@ -23,9 +23,18 @@ export function getInitialState() {
         scale: [18, 18, 18],
       },
       thePlanet: {
+        path: false,
         pos: [-200, 120, -300],
         rot: [0, 0, 0],
         SphereGeometry: [32, 48, 48],
+      },
+      somosText: {
+        path: false,
+        // pos: [-4, 1.5, 10],
+      },
+      universoText: {
+        path: false,
+        // pos: [-16, -0.7, 9],
       },
     },
     sceneBreakpoints: {
