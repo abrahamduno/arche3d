@@ -22,7 +22,12 @@ export default class ScrollWatcher {
       // console.log("t")
       let asd = parseInt(-t*.086)
       // console.log(asd, this.vuelike.refs.ceoimg.style.transform)
-      this.vuelike.refs.ceoimg.style.transform = `translateX(${asd-1200}px)`
+      if (asd-1200 > 222)
+      {
+        this.vuelike.refs.ceoimg.style.transform = `translateX(${222}px)`
+      } else {
+        this.vuelike.refs.ceoimg.style.transform = `translateX(${asd-1200}px)`
+      }
     }
 
     if (this.scene.DEBUG) { console.log(t) }
