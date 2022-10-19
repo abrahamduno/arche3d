@@ -30,6 +30,16 @@
 * {
   scroll-behavior: smooth;
 }
+
+.arche-input {
+  border: none;
+  background: #0a0835;
+  font-size: 1.8em;
+  color: #eee;
+  padding: 10px;
+}
+
+
 .personbox-wrapper {
   clip-path: polygon(20% 0, 100% 0, 100% 100%, 0 100%, 0 15%);
   background: #94D048;

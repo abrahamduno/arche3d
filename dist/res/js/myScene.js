@@ -118,6 +118,7 @@ export default class MyScene {
   loadSkeletonObjects() {
     for (const property in this.Objects) {
       // console.log(`${property}: ${object[property]}`);
+      if (!this.Objects[property].path) continue
       new OBJLoader().setPath(this.Objects[property].path).load(
         this.Objects[property].file,
         (object) => {
@@ -213,19 +214,34 @@ export default class MyScene {
   }
   loadSpaceObjects() {
     // ## planet ##
-    let thePlanet = {
-      pos: [-200, 120, -300],
-      rot: [0, 0, 0],
-      sphere: [32, 48, 48],
-    };
+    let secondPlanet = {...this.Objects.secondPlanet}
+    let thePlanet = {...this.Objects.thePlanet}
     const planetTexture = new THREE.TextureLoader().load("res/img/DEGRADE-PLANETA.jpg");
     this.myPlanet = new THREE.Mesh(
-      new THREE.SphereGeometry(...thePlanet.sphere),
+      new THREE.SphereGeometry(...thePlanet.SphereGeometry),
       new THREE.MeshBasicMaterial({ map: planetTexture })
     );
     this.myPlanet.position.set(...thePlanet.pos);
     this.myPlanet.rotation.set(...thePlanet.rot);
     this.scene.add(this.myPlanet);
+
+    this.secondPlanet = new THREE.Mesh(
+      new THREE.SphereGeometry(...secondPlanet.SphereGeometry),
+      new THREE.MeshBasicMaterial({ color: 0xffffff, wireframe: true })
+    );
+    this.secondPlanetFill = new THREE.Mesh(
+      new THREE.SphereGeometry(...secondPlanet.SphereGeometry),
+      new THREE.MeshBasicMaterial({
+        color: 0xFFE595,
+        opacity: 0.3,
+        transparent: true,
+      })
+    
+    );
+    this.secondPlanet.add(this.secondPlanetFill)
+    this.secondPlanet.position.set(...secondPlanet.pos);
+    this.secondPlanet.rotation.set(...secondPlanet.rot);
+    this.scene.add(this.secondPlanet);
     // ## end planet ##
 
     // ## ring ##
@@ -243,7 +259,8 @@ export default class MyScene {
     //   new THREE.MeshBasicMaterial({ map: ringTexture })
     // );
 
-    let addring = newring();
+    let theRing = {...this.Objects.thePlanet}
+    let addring = newring(theRing);
     this.myRing = addring;
 
     // this.myRing.position.set(...theRing.pos);
@@ -296,9 +313,9 @@ export default class MyScene {
             size: 1,
             height: 1,
           });
-          const textMesh1 = new THREE.Mesh(geometry, textmaterials);
-          textMesh1.position.set(-4, 1.5, 10);
-          this.scene.add(textMesh1);
+          this.somosText = new THREE.Mesh(geometry, textmaterials);
+          this.somosText.position.set(...this.Objects.somosText.pos);
+          this.scene.add(this.somosText);
         }
         {
           const geometry = new THREE.TextGeometry("UNIVERSO CREATIVO", {
@@ -306,9 +323,9 @@ export default class MyScene {
             size: 2,
             height: 1,
           });
-          const textMesh1 = new THREE.Mesh(geometry, textmaterials);
-          textMesh1.position.set(-16, -0.7, 9);
-          this.scene.add(textMesh1);
+          this.universoText = new THREE.Mesh(geometry, textmaterials);
+          this.universoText.position.set(...this.Objects.universoText.pos);
+          this.scene.add(this.universoText);
         }
         {
           const geometry = new THREE.TextGeometry("¿Qué hacemos por ti?", {

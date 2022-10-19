@@ -20,9 +20,13 @@ function newtorus() {
   return torus;
 }
 
-function newring() {
+// pos: [-200, 120, -300],
+// rot: [0, 0, 0],
+// SphereGeometry: [32, 48, 48],
+
+function newring(refObject) {
   let theRing = {
-    pos: [-200, 120, -300],
+    pos: refObject.pos,
     rot: [2.4, 0, -2],
     torus: [45, 8, 12, 64],
     scale: [1, 1, 0.02],

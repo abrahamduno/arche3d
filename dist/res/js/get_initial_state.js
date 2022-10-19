@@ -22,11 +22,31 @@ export function getInitialState() {
         rot: [0.5, 1.5, 0],
         scale: [18, 18, 18],
       },
+      thePlanet: {
+        path: false,
+        pos: [-200, 120, -300],
+        rot: [0, 0, 0],
+        SphereGeometry: [32, 12, 12],
+      },
+      secondPlanet: {
+        path: false,
+        pos: [0, 120, -300],
+        rot: [0, 0, 0],
+        SphereGeometry: [186, 12, 12],
+      },
+      somosText: {
+        path: false,
+        pos: [-4, 1.5, 10],
+      },
+      universoText: {
+        path: false,
+        pos: [-16, -0.7, 9],
+      },
     },
     sceneBreakpoints: {
       default: [],
       mobile: [1900, 4500, 8500, 9000, 16500],
-      desktop: [2400, 4500, 7300, 8600, 14000],
+      desktop: [2400, 4500, 8000, 8600, 14400],
     },
     sceneVariables: {
       camera: {

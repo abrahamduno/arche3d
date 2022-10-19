@@ -136,7 +136,7 @@ class jQueryTemplateView {
 				newClone.innerHTML = theList[j].name
 				newClone.innerHTML = `
 					<div class="flex-column">
-						<img style="width: 150px;" src="res/img/${theList[j].folder}/${theList[j].imgsrc}.png"/>
+						<img class="arche-nauta-thumb" src="res/img/${theList[j].folder}/${theList[j].imgsrc}.png"/>
 					</div>
 				`
 				newClone.dataset.args = j

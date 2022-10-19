@@ -45,8 +45,20 @@ export function getInitialState() {
     },
     sceneBreakpoints: {
       default: [],
-      mobile: [1900, 4500, 8500, 9000, 16500],
-      desktop: [2400, 4500, 8000, 8600, 14400],
+      mobile: [
+        1900, // lift up
+        4500, // move right
+        8500, // rotate right
+        9000, // stop movement
+        16500, // last scene
+      ],
+      desktop: [
+        2400, // lift up
+        3500, // move right
+        8000, // rotate right
+        8600, // stop movement
+        14400, // last scene
+      ],
     },
     sceneVariables: {
       camera: {

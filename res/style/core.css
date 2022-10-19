@@ -30,7 +30,15 @@
 * {
   scroll-behavior: smooth;
 }
-
+.arche-nauta-thumb {
+  width: 160px;
+}
+@media only screen  and (max-width: 768px)
+{
+  .arche-nauta-thumb {
+    width: 115px;
+  }
+}
 .arche-input {
   border: none;
   background: #0a0835;
