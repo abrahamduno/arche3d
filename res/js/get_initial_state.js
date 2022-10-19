@@ -31,7 +31,7 @@ export function getInitialState() {
       secondPlanet: {
         path: false,
         pos: [0, 120, -300],
-        rot: [0, 0, 0],
+        rot: [-0.4, -0.2, -0.2],
         SphereGeometry: [186, 12, 12],
       },
       somosText: {
