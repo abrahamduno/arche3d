@@ -57,7 +57,7 @@ export function getInitialState() {
         3500, // move right
         8000, // rotate right
         8600, // stop movement
-        14400, // last scene
+        15000, // last scene
       ],
     },
     sceneVariables: {

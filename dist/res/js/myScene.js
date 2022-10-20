@@ -78,8 +78,14 @@ export default class MyScene {
   setScene() {
     this.scene = new THREE.Scene();
 
-    const spaceTexture = new THREE.TextureLoader().load("res/img/bg.jpg");
-    this.scene.background = spaceTexture;
+    if (this.DOM.ratio > 1)
+    {
+      const spaceTexture = new THREE.TextureLoader().load("res/img/bg.jpg")
+      this.scene.background = spaceTexture;
+    } else {
+      const spaceTexture = new THREE.TextureLoader().load("res/img/bg(mobile).jpg")
+      this.scene.background = spaceTexture;
+    }
 
     let camera = new THREE.PerspectiveCamera(
       this.sceneVariables.camera.fov,

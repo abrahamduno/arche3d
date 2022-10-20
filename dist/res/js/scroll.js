@@ -22,7 +22,26 @@ export default class ScrollWatcher {
       // console.log("t")
       let asd = parseInt(-t*.086)
       // console.log(asd, this.vuelike.refs.ceoimg.style.transform)
-      this.vuelike.refs.ceoimg.style.transform = `translateX(${asd-1200}px)`
+      if (window.matchMedia('(max-width: 992px)').matches)
+      {
+        // this.vuelike.refs.ceoimg.style.transform = `translateX(${asd-1400}px)`
+        // console.log("*************************")
+      } else {
+        if (window.matchMedia('(max-width: 1280px)').matches)
+        {
+          this.vuelike.refs.ceoimg.style.transform = `translateX(${asd-1350}px)`
+        } else {
+          this.vuelike.refs.ceoimg.style.transform = `translateX(${asd-1300}px)`
+        }
+        // console.log("---------------------")
+
+        // if (asd-1200 > 222)
+        // {
+          // this.vuelike.refs.ceoimg.style.transform = `translateX(${222}px)`
+        // } else {
+        // }
+        // this.vuelike.refs.ceoimg.style.transform = `translateX(${asd-1600}px)`
+      }
     }
 
     if (this.scene.DEBUG) { console.log(t) }
