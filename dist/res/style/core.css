@@ -39,6 +39,13 @@
     width: 115px;
   }
 }
+@media only screen  and (max-width: 1281px)
+{
+  .ceobox {
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+}
 .arche-input {
   border: none;
   background: #0a0835;
@@ -53,12 +60,18 @@
 .personbox-wrapper {
   clip-path: polygon(20% 0, 100% 0, 100% 100%, 0 100%, 0 15%);
   background: #94D048;
-  padding: 1px;
+  padding: 2px;
+  max-width: 534px;
+  max-width: 600px;
+}
+#person_img {
 }
 .personbox {
   clip-path: polygon(20% 0, 100% 0, 100% 100%, 0 100%, 0 15%);
   /* box-shadow: 0 0 0 2px #94D048; */
   width: 100%;
+  max-width: 534px;
+  max-width: 600px;
 
 }
 .personbox .personinfo {

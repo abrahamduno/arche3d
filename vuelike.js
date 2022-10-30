@@ -46,12 +46,15 @@ class jQueryTemplateView {
 				this.$container.find(`#person_name`)[0].innerHTML = this.data.people[newKey].name.toUpperCase()
 				this.$container.find(`#person_job`)[0].innerHTML = this.data.people[newKey].job
 
-				// if (this.data.people[newKey].folder == "JUNIORS")
-				// {
-					this.$container.find(`#person_group`)[0].innerHTML = `
-						<img style="display: block; width: 200px" class=" " src="res/img/${this.data.people[newKey].folder}/stars.png"/>
+				this.$container.find(`.person_group`)[0].innerHTML = `
+					<img class="w-100 " src="res/img/${this.data.people[newKey].folder}/stars.png"/>
+				`
+				if (this.$container.find(`.person_group`)[1])
+				{
+					this.$container.find(`.person_group`)[1].innerHTML = `
+						<img  class="w-100 " src="res/img/${this.data.people[newKey].folder}/stars.png"/>
 					`
-				// }
+				}
 
 				// this.$container.find(`#person_joblength`)[0].innerHTML = this.data.people[newKey].joblength
 				// this.$container.find(`#person_joblength`)[0].innerHTML = this.data.people[newKey].unix*1000
@@ -90,7 +93,7 @@ class jQueryTemplateView {
 				// this.$container.find(`#person_joblength`)[0].innerHTML = `${monthsCount} Meses`
 				
 				this.$container.find(`#person_img`)[0].innerHTML = `
-					<img style="display: block" class=" w-100" src="res/img/${this.data.people[newKey].folder}/${this.data.people[newKey].imgsrc}-02.jpg"/>
+					<img style="display: block; " class=" w-100" src="res/img/${this.data.people[newKey].folder}/${this.data.people[newKey].imgsrc}-02.jpg"/>
 				`
 				
 

@@ -205,10 +205,10 @@
 
       <div class="hidden block grid-column-12" style="height: 1700px;">  </div>
       <section class="light wide" style="background: #020226;" >
-        <div class="flex-md2x-wrap flex-xs2sm-wrap pb-8">
+        <div class="flex-column-r flex-lg2x-row   pb-8 " style="justify-content: center; align-items: center;">
           <input data-watch="testfield" type="text" style="display:none" />
           
-          <div class="flex-wrap flex-1" data-for-click="updatePerson" data-items="people">
+          <div class="flex-wrap  flex-1" data-for-click="updatePerson" data-items="people" style="max-width: 700px"> 
             <div data-args="0" class="clickable pa-1 opacity-hover-75">
               name
             </div>
@@ -217,37 +217,44 @@
           <div data-ref="selectedperson" style="line-height: 1" class="personbox pos-relative">
             <div id="person_img" style="min-height: 200px;"></div>
             <div class="personinfo">
+
               <div class="flex-justify-start"  style="background: transparent; transform: translateY(-97%) translateX(6px)">
                 <div style="background: #000014; clip-path: polygon(90% 0%, 100% 100%, 0 100%, 0 0);"  class=" pa-4 px-6 tx-lg tx-ls-3 ">ARCHENAUTA</div>
               </div>
-              <div class=" pt-0  w-100 flex-between flex-column flex-md2x-row">
-                <div style="border-left: 1px solid #94D048; font-size: 1.8em;" id="person_name"  class="pl-2 ml-5  ">?</div>
-                <div style="width: 200px" id="person_group"  class="  mr-5   ">?</div>
-              </div>
-              <div class="flex-wrap flex-justify-between pa-6 tx-lg " >
-                <div class="flex-column flex-align-start flex-1">
-                  <div class="flex-start ">
-                    <div style="color: #94D048">CARGO</div>
-                    <div class="mt-0  " id="person_job"></div>
-                  </div>
-                  <div class="flex-start mt-3">
-                    <div style="color: #94D048">ANTIGUEDAD</div>
-                    <div id="person_joblength"></div>
-                  </div>
-                </div>
-                <div class="flex-column flex-justify-between">
-                  <div class="flex-xs2md-column flex-md2x-between flex-1 tx-xs flex-1 w-100" style="align-items: stretch">
-                    <div id="person_Creatividad" style="min-width:150px" class=" flex-1 tx-ls-2 "></div>
-                    <div id="person_Diseno" style="min-width:150px" class=" flex-1 tx-ls-2 "></div>
-                  </div>
 
-                  <div class="flex-xs2md-column flex-md2x-between flex-1 tx-xs flex-1 w-100" style="align-items: stretch">
-                    <div id="person_Liderazgo" style="min-width:150px" class=" flex-1 tx-ls-2 "></div>
-                    <div id="person_Curiosidad" style="min-width:150px" class=" flex-1 tx-ls-2 "></div>
+              <div class="w-100 ">
+                <div class="    flex-align-start flex-justify-between flex-between flex-column flex-md2x-row pa-6 pt-0">
+                  <div style="border-left: 1px solid #94D048; font-size: 1.8em;" id="person_name"  class=" pl-2">?</div>
+                  <div style="width: 200px" class="person_group show-xs_sm mr-5   ">?</div>
+                  <div style="width: 200px; margin: auto" class="person_group show-sm_x     ">?</div>
+                </div>
+
+                <div class="flex flex-md2x-row flex-justify-between  tx-lg pa-6 pt-0">
+                  <div class="flex-column flex-align-start flex-1 ">
+                    <div class="flex-start ">
+                      <div style="color: #94D048">CARGO</div>
+                      <div class="mt-0  " id="person_job"></div>
+                    </div>
+                    <div class="flex-start mt-3">
+                      <div style="color: #94D048">ANTIGUEDAD</div>
+                      <div id="person_joblength"></div>
+                    </div>
+                  </div>
+                  <div class="flex-column flex-justify-between">
+                    <div class="flex-xs2md-column flex-md2x-between flex-1 tx-xs flex-1 w-100" style="align-items: stretch">
+                      <div id="person_Creatividad" style="min-width:120px" class=" flex-1 tx-ls-1 "></div>
+                      <div id="person_Diseno" style="min-width:120px" class=" flex-1 tx-ls-1 "></div>
+                    </div>
+
+                    <div class="flex-xs2md-column flex-md2x-between flex-1 tx-xs flex-1 w-100" style="align-items: stretch">
+                      <div id="person_Liderazgo" style="min-width:120px" class=" flex-1 tx-ls-1 "></div>
+                      <div id="person_Curiosidad" style="min-width:120px" class=" flex-1 tx-ls-1 "></div>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
+
           </div>
         </div>
           
@@ -257,21 +264,32 @@
 
       <section class="light wide pa-0" style="background: #020226;">
         <!-- <h1 style="opacity: 0.6; text-align: center; letter-spacing: 5px;">Archenautas</h1> -->
-        <div class="flex-lg2x-wrap flex-xs2md-wrap  pos-relative">
+        <div class="flex-xl2x-row flex-column  pos-relative ceobox">
           <div class="show-lg_x" style="width:80px" > </div>
           <div class="flex-column flex-1  flex-align-start">
             <!-- <img src="./res/img/archenautas.jpg" alt="" style="max-width: 100%;"> -->
-            <p class="pa-3 tx-lg tx-start" style="line-height: 1.5em;  background: transparent; color: white; text-shadow: 0 0 25px #ffffff77">
-              NUESTRA CEO: <br>Marelis Mendez Agreda
+            <p class="pa-3 tx-start pb-0" style="line-height: 1.5em;  background: transparent; color: white; text-shadow: 0 0 25px #ffffff77;
+            font-size: clamp(1rem, -0.875rem + 8.333vw, 2.1rem)">
+              <span style="font-weight: 600;">
+                Hola, soy Marelis Méndez <br>
+              </span>
+              <small style="font-weight: 100;">
+                CEO de Universo Arché
+              </small>
             </p>
-            <p class="pa-3 tx-sm">
-              “No soy especialista ni experta en nada. Me he preocupado por formarme y constantemente, actualizarme” 
+            <p class="px-3 tx-sm mt-0">
+                  Egresada de la escuela de formación Bootcampvero, avalada por Vero Ruiz del Vizo.
+                  Tengo certificado del IESA Global en campañas publicitarias y estratégicas de mercadeo digital. 
             </p>
-            <p class="pa-3 tx-sm">
+            <p class="px-3 tx-sm mt-0">
+              También realicé la formación avalada por la Consultora Internacional de Marketing Digital, Dra. Vilma Núñez a través de su escuela “Convierte Más”.
+            </p>
+            <p class="px-3 tx-sm mt-0">
               Hoy, dirijo las operaciones de Universo Arché, desarrollando la comunicación digital de nuestros clientes, asesorándolos y acompañándolos en cada una de las etapas, hacia el posicionamiento de sus marcas. 
             </p>
           </div>
-          <img data-ref="ceoimg" src="./res/img/GERENCIA/MARE.png" alt="" style="max-width: 100%; width: 500px" class="pos-absolute bottom-0 show-lg_x">
+          <img data-ref="ceoimg" src="./res/img/GERENCIA/MARE.png" alt="" style="max-width: 100%; width: 500px" class="pos-absolute bottom-0 show-xl_x"> <!-- show-lg_x -->
+          <img data-ref="ceoimg" src="./res/img/GERENCIA/MARE.png" alt="" style="max-width: 75%; max-width: 400px" class="pos-absolute bottom-0 show-xs_xl"> <!-- show-lg_x -->
           <div style="width: 500px" class="flex-column flex-1 pos-relative block">
             <!-- <p>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
@@ -279,10 +297,8 @@
           </div>
           <div class="flex-column flex-1 ">
             <!-- <img src="./res/img/archenautas.jpg" alt="" style="max-width: 100%;"> -->
-                <p class="pa-3 tx-sm">
-                  Hola, soy Marelis Méndez, CEO de Universo Arché. Egresada de la escuela de formación Bootcampvero, avalada por Vero Ruiz del Vizo.
-                  <br>
-                  Tengo certificado del IESA Global en campañas publicitarias y estratégicas de mercadeo digital. También realicé la formación avalada por la Consultora Internacional de Marketing Digital, Dra. Vilma Núñez a través de su escuela “Convierte Más”.
+                <p class="pa-3 " style="font-size: 1.7rem; line-height: 0.9; font-weight: 100;">
+                  “No soy especialista ni experta en nada. Me he preocupado por formarme y constantemente, actualizarme” 
                 </p>
             <!-- <ul>
               <li>
@@ -294,7 +310,8 @@
             </ul> -->
           </div>
           <div class="show-lg_x" style="width:80px" > </div>
-          <img src="./res/img/GERENCIA/MARE.png" alt="" class=" bottom-0 show-xs_lg pos-relative" style=" width: 75%">
+          <div class="show-xs_xl" style="height:500px" > </div>
+          <!-- <img src="./res/img/GERENCIA/MARE.png" alt="" class=" bottom-0 show-xs_lg pos-relative" style=" width: 75%"> -->
 
         </div>
       </section>
