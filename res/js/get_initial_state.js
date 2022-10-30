@@ -10,7 +10,7 @@ export function getInitialState() {
         file: "sat.obj",
         path: BASE_ASSET_URL + "/models/",
         wireframe: true,
-        pos: [50, 35, 45],
+        pos: [60, 35, 45],
         rot: [0, 0.7, 1],
         scale: [3, 3, 3],
       },
