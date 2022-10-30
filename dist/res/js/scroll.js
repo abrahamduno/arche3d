@@ -24,12 +24,13 @@ export default class ScrollWatcher {
       // console.log(asd, this.vuelike.refs.ceoimg.style.transform)
       if (window.matchMedia('(max-width: 992px)').matches)
       {
+          this.vuelike.refs.ceoimg.style.transform = `translateX(0px)`
         // this.vuelike.refs.ceoimg.style.transform = `translateX(${asd-1400}px)`
         // console.log("*************************")
       } else {
         if (window.matchMedia('(max-width: 1280px)').matches)
         {
-          this.vuelike.refs.ceoimg.style.transform = `translateX(${asd-1350}px)`
+          this.vuelike.refs.ceoimg.style.transform = `translateX(${asd-1300}px)`
         } else {
           this.vuelike.refs.ceoimg.style.transform = `translateX(${asd-1300}px)`
         }
