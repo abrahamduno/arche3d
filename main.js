@@ -76,6 +76,10 @@ const loadElement = (_file, _element) => {
 $(document).ready(() => {
   loadElement('./include/ourwork-1.html', "ourwork-1")
   loadElement('./include/ourwork-2.html', "ourwork-2")
+  loadElement('./include/contact-form.html', "contact-form")
+  loadElement('./include/where-we.html', "where-we")
+  loadElement('./include/who-we.html', "who-we")
+  // loadElement('./include/ceo-box.html', "ceo-box")
 
 	const newjQueryTemplateView = new VueLike('#templateViewId', {}, TheScene);
   const TheScrollWatcher = new ScrollWatcher(TheScene, newjQueryTemplateView);
