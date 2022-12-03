@@ -10,10 +10,9 @@
     <!-- <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script> -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer">
-  <script type="module" crossorigin src="/assets/index.cfdd7611.js"></script>
-  <link rel="modulepreload" href="/assets/vendor.ebcebb16.js">
-  <link rel="stylesheet" href="/assets/index.2978d316.css">
-</head>
+    <script type="module" crossorigin src="/assets/index.435e084b.js"></script>
+    <link rel="stylesheet" href="/assets/index.52eceb5e.css">
+  </head>
   <body>
 
     <canvas id="bg"></canvas>   
